@@ -1,7 +1,13 @@
-pip install django
-pip install djangorestframework
-pip install django-cors-headers
-pip install djangorestframework-simplejwt
-pip install Pillow
-pip install django-filter
+init
 
+Tạo DB "crmgozic"
+
+cd backend
+.\venv\Scripts\activate
+pip install -r requirements.txt
+python manage.py runserver 8000
+
+ctrl+shift+5
+cd frontend
+npm install
+npm start
