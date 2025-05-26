@@ -1,0 +1,11 @@
+from confluent_kafka import Producer
+
+def get_kafka_producer():
+    config = {"bootstrap.servers": "localhost:9092"}  # Địa chỉ Kafka
+    return Producer(config)
+
+def produce_message(topic, key, value):
+    producer = get_kafka_producer()
+    producer.produce(topic, key=key, value=value)
+    producer.flush()  # Đảm bảo tất cả message được gửi đi
+
