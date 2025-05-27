@@ -1,6 +1,7 @@
 Các bước init
 
  - Tạo DB "crmgozic"
+ ctrl + shift + 5
 
 cmd: 
 python -m venv venv
