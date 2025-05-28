@@ -171,7 +171,7 @@ export class CalendarComponent implements OnInit {
                                     if (event.repeat_every_day) {
                                         const isInSameWeek = this.isSameWeek(day.fullDate, eventStartDate);
                                         const isWeekday = day.fullDate.getDay() >= 1 && day.fullDate.getDay() <= 5; // 1=Mon, ..., 5=Fri
-                                        shouldAddEvent = isInSameWeek && isWeekday && day.fullDate >= eventStartDate;
+                                        shouldAddEvent = isInSameWeek && isWeekday && day.fullDate >= new Date(eventStartDate.getTime() - 86400000);
                                     } else {
                                         const isInSameWeek = this.isSameWeek(day.fullDate, eventStartDate);
                                         const dayName = this.getDayName(day.fullDate); // 'Mon', 'Tue', ...
