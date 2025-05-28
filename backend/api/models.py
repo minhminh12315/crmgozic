@@ -46,3 +46,60 @@ class task(models.Model):
 
     def __str__(self):
         return self.title
+    
+class event(models.Model):
+    DAYS_OF_WEEK = [
+        ('Mon', 'Monday'),
+        ('Tue', 'Tuesday'),
+        ('Wed', 'Wednesday'),
+        ('Thu', 'Thursday'),
+        ('Fri', 'Friday'),
+        ('Sat', 'Saturday'),
+        ('Sun', 'Sunday'),
+    ]
+
+    event_name = models.CharField(max_length=100)
+    event_category = models.CharField(max_length=50, choices=[
+        ('Corporate Event', 'Corporate Event'),
+        ('Birthday', 'Birthday'),
+        ('Meeting', 'Meeting'),
+        ('Reminder', 'Reminder'),
+    ], default='Corporate Event')
+    priority = models.CharField(max_length=10, choices=[
+        ('Low', 'Low'),
+        ('Medium', 'Medium'),
+        ('High', 'High'),
+    ], default='Medium')
+    date = models.DateField()
+    time = models.TimeField()
+    description = models.TextField(null=True, blank=True)
+    
+    repeat_event = models.BooleanField(default=False)
+    repeat_type = models.CharField(max_length=10, choices=[
+        ('Daily', 'Daily'),
+        ('Weekly', 'Weekly'),
+        ('Monthly', 'Monthly'),
+    ], null=True, blank=True)
+    
+    repeat_days = models.CharField(max_length=100, blank=True, null=True)
+    repeat_every_day = models.BooleanField(default=False)
+    repeat_time = models.TimeField(blank=True, null=True)
+
+    # created_by = models.ForeignKey(employee, on_delete=models.CASCADE, related_name='events')
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.event_name
+    
+    def get_repeat_days_list(self):
+        """Chuyển repeat_days từ chuỗi -> list ['Mon', 'Tue'] hoặc trả về tất cả các ngày nếu repeat_every_day=True"""
+        if self.repeat_every_day:
+            return [day[0] for day in self.DAYS_OF_WEEK]  # Trả về tất cả các ngày
+        if self.repeat_days:
+            return [day.strip() for day in self.repeat_days.split(',')]
+        return []
+    
+    def save(self, *args, **kwargs):
+        if self.repeat_every_day == True:
+            self.repeat_days = 'Mon, Tue, Wed, Thu, Fri, Sat, Sun'
+        super().save(*args, **kwargs)
