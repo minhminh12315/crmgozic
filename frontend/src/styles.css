@@ -10,7 +10,8 @@
     --text-color-disabled: #7D8592;
     --background-color: #F2F2F2;
     --background-white: #FFFFFF;
-    --radius-sm: 7px;
+    --radius-xs: 7px;
+    --radius-sm: 8px;
     --radius-md: 14px;
     --radius-lg: 24px;
     --family-font: "Nunito Sans", sans-serif;
@@ -20,6 +21,9 @@
     --danger-color: #F65160;
     --hover-color: #3A81EB;
     --active-color: #1F6DE0;
+    --success-badge-color: #00D097;
+    --success-bg-badge: #E0F9F2;
+    --warning-bg-badge: #FDC748;
 }
 
 body {
@@ -101,7 +105,7 @@ textarea {
     font-size: 16px;
 }
 
-.btn {
+.btn-primary {
     border-radius: var(--radius-md);
     padding: 12px 18px;
     background-color: var(--primary-color);
@@ -109,16 +113,57 @@ textarea {
     border: none;
 }
 
-.btn:hover {
+.btn-primary:hover {
     background-color: var(--hover-color);
 }
 
-.btn:active {
+.btn-primary:active {
     background-color: var(--active-color);
     cursor: not-allowed;
 }
-.btn:disabled {
+
+.btn-primary:disabled {
     background-color: var(--disabled-color);
     cursor: not-allowed;
 }
 
+.badge {
+    padding: 7px 14px;
+    border-radius: var(--radius-md);
+}
+
+.badeg .text-bg-disable {
+    color: var(--text-color-disabled);
+    background-color: rgba(125, 133, 146, 0.14);
+}
+
+.badeg .text-bg-primary {
+    color: var(--primary-color);
+    background-color: rgba(63, 82, 255, 0.12);
+}
+
+.badeg .text-bg-violet {
+    color: var(--violet-color);
+    background-color: rgba(196, 24, 230, 0.11);
+}
+
+.badeg .text-bg-success {
+    color: var(--success-bg-badge);
+    background-color: var(--success-bg-badge);
+}
+
+.badge .badge-success {
+    background-color: var(--success-bg-badge);
+    color: var(--text-color-secondary);
+}
+
+.badge .badge-success {
+    background-color: var(--warning-bg-badge);
+    color: var(--text-color-secondary);
+}
+
+.badge .badge-success {
+    color: var(--text-color-disabled);
+    background-color: transparent;
+    border: 1px solid var(--text-color-disabled);
+}
