@@ -1,0 +1,185 @@
+<div class="calendar-container">
+    <div class="calendar-header">
+        <h1>Calendar</h1>
+        <button class="add-event-btn" (click)="openAddEventModal()">+ Add Event</button>
+    </div>
+
+    <div class="calendar-navigation">
+        <button class="nav-btn" (click)="previousMonth()"><i class="bi bi-arrow-left-short"></i></button>
+        <h2>{{ currentMonth }}, {{ currentYear }}</h2>
+        <button class="nav-btn" (click)="nextMonth()"><i class="bi bi-arrow-right-short"></i></button>
+    </div>
+
+    <div class="calendar-grid">
+        <!-- Week days header -->
+        <div class="weekdays-header">
+            <div class="weekday">Mon</div>
+            <div class="weekday">Tue</div>
+            <div class="weekday">Wed</div>
+            <div class="weekday">Thu</div>
+            <div class="weekday">Fri</div>
+        </div>
+
+        <!-- Calendar days grid -->
+        <div class="days-grid">
+            <div *ngFor="let day of workDays" class="day-cell" [class.other-month]="!day.isCurrentMonth">
+                <div class="events-container">
+                    <div *ngFor="let event of day.events | slice:0:2" class="event-item" [style.background-color]="event.color || '#F4F9FD'">
+                        <div class="event-marker" [style.background-color]="getEventColor(event.event_category)"></div>
+                        <div class="event-content">
+                            <div class="event-title">{{ event.event_name }}</div>
+                            <div class="event-time">
+                                <div>{{ event.time }}</div>
+                                <div class="priority-indicator">
+                                    <i *ngIf="event.priority === 'High'" class="bi bi-arrow-up-short high-priority"></i>
+                                    <i *ngIf="event.priority === 'Medium'" class="bi bi-arrow-right-short medium-priority"></i>
+                                    <i *ngIf="event.priority === 'Low'" class="bi bi-arrow-down-short low-priority"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="day.events.length > 2" class="more-events" (click)="showMoreEvents(day)">
+                        +{{ day.events.length - 2 }}
+                    </div>
+                </div>
+                <div class="day-number">{{ day.date }}</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading indicator -->
+    <div *ngIf="isLoading" class="loading-overlay">
+        Loading events...
+    </div>
+
+    <!-- Events Modal -->
+    <div class="events-modal" *ngIf="selectedDayEvents.length > 0" (click)="closeModal()">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+            <div class="modal-header">
+                <h3>Events for {{ getFormattedDate(selectedDate) }}</h3>
+                <button class="close-btn" (click)="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div *ngFor="let event of selectedDayEvents" class="modal-event-item">
+                    <div class="event-marker" [style.background-color]="getEventColor(event.event_category)"></div>
+                    <div class="event-content">
+                        <div class="event-title">{{ event.event_name }}</div>
+                        <div class="event-time">
+                            <div>{{ event.time }}</div>
+                            <div class="priority-indicator">
+                                <i *ngIf="event.priority === 'High'" class="bi bi-arrow-up-short high-priority"></i>
+                                <i *ngIf="event.priority === 'Medium'" class="bi bi-arrow-right-short medium-priority"></i>
+                                <i *ngIf="event.priority === 'Low'" class="bi bi-arrow-down-short low-priority"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Event Modal -->
+    <div class="add-event-modal" *ngIf="showAddEventModal" (click)="closeAddEventModal()">
+        <div class="modal-content add-event-content" (click)="$event.stopPropagation()">
+            <div class="modal-header">
+                <h3>Add Event</h3>
+                <button class="close-btn" (click)="closeAddEventModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="eventForm" (ngSubmit)="saveEvent()">
+                    <div class="form-group">
+                        <label>Event Name</label>
+                        <input type="text" formControlName="event_name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Event Category</label>
+                        <select formControlName="event_category">
+                            <option value="Corporate Event">Corporate Event</option>
+                            <option value="Meeting">Meeting</option>
+                            <option value="Birthday">Birthday</option>
+                            <option value="Reminder">Reminder</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Priority</label>
+                        <select formControlName="priority">
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label>Date</label>
+                            <div class="input-icon">
+                                <input type="date" formControlName="date">
+                            </div>
+                        </div>
+                        <div class="form-group half">
+                            <label>Time</label>
+                            <div class="input-icon">
+                                <input type="time" formControlName="time">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea formControlName="description" placeholder="Add some description of the event"></textarea>
+                    </div>
+
+                    <div class="form-group repeat-event">
+                        <label>Repeat Event</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" formControlName="repeat_event" id="repeat-toggle">
+                            <label for="repeat-toggle"></label>
+                        </div>
+                    </div>
+
+                    <div class="repeat-options" *ngIf="eventForm.get('repeat_event')?.value">
+                        <div class="repeat-frequency">
+                            <button type="button" 
+                                [class.active]="eventForm.get('repeat_type')?.value === 'Daily'"
+                                (click)="eventForm.patchValue({repeat_type: 'Daily', repeat_every_day: true})">
+                                Daily
+                            </button>
+                            <button type="button" 
+                                [class.active]="eventForm.get('repeat_type')?.value === 'Weekly'"
+                                (click)="eventForm.patchValue({repeat_type: 'Weekly', repeat_every_day: false})">
+                                Weekly
+                            </button>
+                            <button type="button" 
+                                [class.active]="eventForm.get('repeat_type')?.value === 'Monthly'"
+                                (click)="eventForm.patchValue({repeat_type: 'Monthly', repeat_every_day: false})">
+                                Monthly
+                            </button>
+                        </div>
+
+                        <div class="weekday-selector" *ngIf="eventForm.get('repeat_type')?.value === 'Weekly'">
+                            <label>On these days:</label>
+                            <div class="weekday-buttons">
+                                <button type="button" *ngFor="let day of weekDays" 
+                                    [class.active]="isWeekdaySelected(day)"
+                                    (click)="toggleWeekday(day)">
+                                    {{day}}
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="repeat-time" *ngIf="!eventForm.get('repeat_every_day')?.value">
+                            <label>Time</label>
+                            <div class="input-icon">
+                                <input type="time" formControlName="repeat_time">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="save-btn">Save Event</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
