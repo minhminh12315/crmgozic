@@ -195,9 +195,10 @@ export class CalendarComponent implements OnInit {
                             }
 
                             if (shouldAddEvent) {
-                                if (!day.events.some(e => e.id === event.id)) {
-                                    day.events.push({ ...event });
-                                }
+                                // if (!day.events.some(e => e.id === event.id)) {
+                                //     day.events.push({ ...event });
+                                // }
+                                day.events.push({ ...event });
                             }
                         });
                     });
