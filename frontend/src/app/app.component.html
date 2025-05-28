@@ -6,10 +6,16 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<app-header></app-header>
-<main class="main">
-  <router-outlet />
-</main>
+
+<div class="d-flex flex-row h-100 w-100" style="gap: 30px">
+  <app-side-bar />
+  <div id="header-main-container">
+    <app-header />
+    <main class="main">
+      <router-outlet />
+    </main>
+  </div>
+</div>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->

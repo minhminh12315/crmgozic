@@ -8,13 +8,16 @@
     --text-color-primary: #0A1629;
     --text-color-secondary: #FFFFFF;
     --text-color-disabled: #7D8592;
-    --background-color: #F2F2F2;
+    --background-color: #F4F9FD;
     --background-white: #FFFFFF;
     --radius-xs: 7px;
     --radius-sm: 8px;
     --radius-md: 14px;
     --radius-lg: 24px;
     --family-font: "Nunito Sans", sans-serif;
+    --font-weight-bold: 400;
+    --font-weight-semibold: 600;
+    --font-weight-regular: 700;
     --violet-color: #6D5DD3;
     --success-color: #0AC947;
     --warning-color: #FFBD21;
@@ -28,7 +31,9 @@
 
 body {
     margin: 0;
-    padding: 0;
+    padding: 20px;
+    min-height: 100vh;
+    max-width: 100vw;
     font-family: var(--family-font);
     font-size: 16px;
     line-height: auto;
