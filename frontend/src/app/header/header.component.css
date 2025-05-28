@@ -1,0 +1,107 @@
+:host {
+    width: 100%;
+}
+
+#header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#header .search-container {
+    box-sizing: border-box;
+    background-color: var(--background-white);
+    width: 412px;
+    height: 48px;
+    padding-left: 19px;
+    padding-block: 12px;
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 11px;
+}
+
+#header .search-container input {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 60%;
+}
+
+#header .search-container input::placeholder {
+    font-weight: var(--font-weight-regular);
+    font-size: 16px;
+    color: var(--text-color-disabled);
+}
+
+#header .notification-info-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: 24px;
+}
+
+#header .notification-info-container .notification-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: var(--background-white);
+    border-radius: var(--radius-md);
+}
+
+#header .notification-info-container .notification-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: var(--background-white);
+    border-radius: var(--radius-md);
+    border: none;
+    outline: none;
+}
+
+#header .notification-info-container .account-info-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-white);
+    border-radius: var(--radius-md);
+    border: none;
+    outline: none;
+    padding-inline: 14px;
+    padding-block: 9px;
+    gap: 13px;
+}
+
+#header .notification-info-container .account-info-wrapper .ava-name-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#header .notification-info-container .account-info-wrapper .ava-name-wrapper img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: transparent;
+}
+
+#header .notification-info-container .account-info-wrapper .ava-name-wrapper .name {
+    color: var(--text-color-primary);
+    font-size: 16px;
+    font-weight: var(--font-weight-bold);
+}

@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './side-bar.component.css'
 })
 export class SideBarComponent {
+  activeMenu = 'dashboard';
 
+  setActive(menu: string) {
+    this.activeMenu = menu;
+  }
 }
