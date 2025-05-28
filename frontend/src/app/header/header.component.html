@@ -1,12 +1,39 @@
 <header id="header">
-  <!-- search -->
-  <div class="search-container">
-    <svg class="p-0 m-0" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- for mobile web -->
+  <!-- open menu modal -->
+  <button class="d-lg-none d-block btn-open-modal" data-bs-toggle="offcanvas" href="#sidebarOffcanvas" role="button"
+    aria-controls="sidebarOffcanvas">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" clip-rule="evenodd"
-        d="M11.5 3C6.80558 3 3 6.80558 3 11.5C3 16.1944 6.80558 20 11.5 20C13.4845 20 15.3102 19.3199 16.7567 18.18L17.1601 18.5742L20.2929 21.7071L20.3871 21.7903C20.7794 22.0953 21.3466 22.0676 21.7071 21.7071C22.0976 21.3166 22.0976 20.6834 21.7071 20.2929L18.5661 17.1518L18.1721 16.7668C19.3167 15.3187 20 13.4892 20 11.5C20 6.80558 16.1944 3 11.5 3ZM11.5 5C15.0899 5 18 7.91015 18 11.5C18 15.0899 15.0899 18 11.5 18C7.91015 18 5 15.0899 5 11.5C5 7.91015 7.91015 5 11.5 5Z"
+        d="M21 5C21.5523 5 22 5.44772 22 6C22 6.51284 21.614 6.93551 21.1166 6.99327L21 7H3C2.44772 7 2 6.55228 2 6C2 5.48716 2.38604 5.06449 2.88338 5.00673L3 5H21ZM21 11C21.5523 11 22 11.4477 22 12C22 12.5128 21.614 12.9355 21.1166 12.9933L21 13H3C2.44772 13 2 12.5523 2 12C2 11.4872 2.38604 11.0645 2.88338 11.0067L3 11H21ZM22 18C22 17.4477 21.5523 17 21 17H3L2.88338 17.0067C2.38604 17.0645 2 17.4872 2 18C2 18.5523 2.44772 19 3 19H21L21.1166 18.9933C21.614 18.9355 22 18.5128 22 18Z"
         fill="#0A1629" />
     </svg>
-    <input type="text" placeholder="Search">
+  </button>
+  <!-- offcanvas menu mobile -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="sidebarOffcanvas" aria-labelledby="sidebarOffcanvasLabel">
+    <div class="offcanvas-header justify-content-end">
+      <button type="button" class="btn-close-custom align-self-end" data-bs-dismiss="offcanvas" aria-label="Close">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M20.1064 18.6958C20.5835 18.2443 20.5826 17.4845 20.1046 17.034L14.232 11.5L20.1046 5.96597C20.5826 5.51549 20.5835 4.75571 20.1064 4.30419L20.041 4.24227C19.601 3.82583 18.9125 3.82508 18.4716 4.24056L12.5 9.86786L6.52845 4.24056C6.08755 3.82508 5.39905 3.82583 4.95906 4.24227L4.89363 4.30419C4.41658 4.75571 4.4174 5.51549 4.89544 5.96597L10.768 11.5L4.89544 17.034C4.4174 17.4845 4.41658 18.2443 4.89364 18.6958L4.95906 18.7577C5.39905 19.1742 6.08756 19.1749 6.52845 18.7594L12.5 13.1321L18.4716 18.7594C18.9125 19.1749 19.601 19.1742 20.041 18.7577L20.1064 18.6958Z"
+            fill="#0A1629" />
+        </svg>
+      </button>
+    </div>
+    <div class="offcanvas-body">
+      <app-side-bar />
+    </div>
+  </div>
+  <!-- search -->
+  <div class="d-none d-lg-block">
+    <div class="search-container">
+      <svg class="p-0 m-0" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M11.5 3C6.80558 3 3 6.80558 3 11.5C3 16.1944 6.80558 20 11.5 20C13.4845 20 15.3102 19.3199 16.7567 18.18L17.1601 18.5742L20.2929 21.7071L20.3871 21.7903C20.7794 22.0953 21.3466 22.0676 21.7071 21.7071C22.0976 21.3166 22.0976 20.6834 21.7071 20.2929L18.5661 17.1518L18.1721 16.7668C19.3167 15.3187 20 13.4892 20 11.5C20 6.80558 16.1944 3 11.5 3ZM11.5 5C15.0899 5 18 7.91015 18 11.5C18 15.0899 15.0899 18 11.5 18C7.91015 18 5 15.0899 5 11.5C5 7.91015 7.91015 5 11.5 5Z"
+          fill="#0A1629" />
+      </svg>
+      <input type="text" placeholder="Search">
+    </div>
   </div>
   <!-- notification and info account -->
   <div class="notification-info-container">
@@ -22,7 +49,7 @@
     <button class="account-info-wrapper">
       <div class="ava-name-wrapper">
         <img src="assets/avatar.jpg" alt="">
-        <span class="name">Evan Yates</span>
+        <span class="name d-lg-block d-none">Evan Yates</span>
       </div>
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
