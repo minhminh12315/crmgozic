@@ -1,0 +1,117 @@
+:host {
+    width: 100%;
+    height: 100%;
+}
+
+.sign-in-container {
+    width: 100%;
+    height: 770px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.img-container {
+    flex-basis: 50%;
+    background-color: var(--primary-color);
+    padding: 60px 96px 81px 94px;
+}
+
+.img-container .logo-title-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 30px;
+}
+
+.img-container .logo-title-wrapper .title {
+    font-size: 30px;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-color-secondary);
+}
+
+.img-container .description {
+    width: 400px;
+    font-size: 40px;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-color-secondary);
+    line-height: 56px;
+    letter-spacing: 0;
+    margin-top: 48px;
+}
+
+.img-container .img-wrapper {
+    margin-left: -10px;
+    margin-top: 50px;
+}
+
+.login-form-container {
+    flex-basis: 50%;
+    height: 100%;
+    background-color: var(--background-white);
+    padding-top: 115px;
+    padding-inline: 138px;
+
+}
+
+.login-form-container .login-title {
+    font-size: 22px;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-color-primary);
+}
+
+.login-form-container .login-form {
+    width: 403px;
+    margin-top: 33px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.login-form-container .rememberme-forgot-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-form-container .rememberme-forgot-container .rememberMe label,
+.login-form-container .rememberme-forgot-container .forgot-pass {
+    color: var(--text-color-disabled);
+    font-size: 16px;
+    font-weight: var(--font-weight-regular);
+}
+
+.button-sign-container {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+}
+
+.button-sign-container button {
+    padding: 13px 46px;
+}
+
+.button-sign-container .dont-have-acc {
+    color: var(--primary-color);
+    font-size: 16px;
+    font-weight: var(--font-weight-semibold);
+}
+
+@media (max-width: 768px) {
+    .login-form-container {
+        padding-top: 65px;
+        padding-inline: 60px;
+    }
+
+    .login-form-container .login-form {
+        width: 70vw;
+        margin-top: 33px;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+    }
+}

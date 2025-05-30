@@ -1,8 +1,4 @@
-#header-main-container{
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    align-items: start;
-    justify-content: start;
+:host{
+    height: 100%;
     width: 100%;
 }

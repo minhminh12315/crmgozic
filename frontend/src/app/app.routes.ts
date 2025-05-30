@@ -2,10 +2,19 @@ import { Routes } from '@angular/router';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { authGuard } from './auth.guard';
+import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-    { path: 'dashboard', component: DashboardComponent },
     { path: 'sign-in', component: SignInComponent },
-    { path: 'calendar', component: CalendarComponent },
+    {
+        path: '',
+        component: AdminLayoutComponent,
+        // canMatch: [authGuard],
+        children: [
+            { path: 'dashboard', component: DashboardComponent },
+            { path: 'calendar', component: CalendarComponent },
+        ]
+    },
+    // { path: '**', redirectTo: 'signin' }
 ];

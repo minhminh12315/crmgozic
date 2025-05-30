@@ -27,6 +27,7 @@
     --success-badge-color: #00D097;
     --success-bg-badge: #E0F9F2;
     --warning-bg-badge: #FDC748;
+    --border-color: #D8E0F0;
     --bs-btn-close-icon: url("data:image/svg+xml,%3csvg%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M20.1064%2018.6958C20.5835%2018.2443%2020.5826%2017.4845%2020.1046%2017.034L14.232%2011.5L20.1046%205.96597C20.5826%205.51549%2020.5835%204.75571%2020.1064%204.30419L20.041%204.24227C19.601%203.82583%2018.9125%203.82508%2018.4716%204.24056L12.5%209.86786L6.52845%204.24056C6.08755%203.82508%205.39905%203.82583%204.95906%204.24227L4.89363%204.30419C4.41658%204.75571%204.4174%205.51549%204.89544%205.96597L10.768%2011.5L4.89544%2017.034C4.4174%2017.4845%204.41658%2018.2443%204.89364%2018.6958L4.95906%2018.7577C5.39905%2019.1742%206.08756%2019.1749%206.52845%2018.7594L12.5%2013.1321L18.4716%2018.7594C18.9125%2019.1749%2019.601%2019.1742%2020.041%2018.7577L20.1064%2018.6958Z'%20fill='%230A1629'/%3e%3c/svg%3e");
 }
 
@@ -184,4 +185,34 @@ textarea {
     padding: 10px;
     box-sizing: content-box;
     border: none;
+}
+
+.form-control {
+    color: var(--text-color-primary) !important;
+    border-radius: var(--radius-md) !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: 0px 1px 2px rgba(184, 200, 224, 0.22) !important;
+}
+
+.form-control::placeholder {
+    color: var(--text-color-disabled) !important;
+    font-weight: var(--font-weight-regular);
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 8px;
+}
+
+.form-group label{
+    padding-left: 6px;
+    font-size: 14px;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-color-disabled);
+    line-height: 24px;
 }
