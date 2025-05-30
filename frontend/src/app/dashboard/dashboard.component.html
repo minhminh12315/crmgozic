@@ -1,0 +1,482 @@
+<ng-container>
+    <section id="header-dashboard">
+        <!-- welcome text -->
+        <div class="welcome-text">
+            <p>Welcome back, <span>Evan</span> !</p>
+        </div>
+        <div class="title-calendar-container">
+            <h3 class="title">Dashboard</h3>
+            <div class="calendar-container">
+                <div class="daterange-picker-custom-container">
+                    <button class="btn-toggle-picker" (click)="picker.open()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M7 3C7 2.44772 7.44772 2 8 2C8.55228 2 9 2.44772 9 3V4H15V3C15 2.44772 15.4477 2 16 2C16.5523 2 17 2.44772 17 3V4C19.2091 4 21 5.79086 21 8V18C21 20.2091 19.2091 22 17 22H7C4.79086 22 3 20.2091 3 18V8C3 5.79086 4.79086 4 7 4V3ZM15 6C15 6.55228 15.4477 7 16 7C16.5523 7 17 6.55228 17 6L17.1493 6.00549C18.1841 6.08183 19 6.94564 19 8V9H5V8L5.00549 7.85074C5.08183 6.81588 5.94564 6 7 6C7 6.55228 7.44772 7 8 7C8.55228 7 9 6.55228 9 6H15ZM19 11H5V18C5 19.0544 5.81588 19.9182 6.85074 19.9945L7 20H17C18.0544 20 18.9182 19.1841 18.9945 18.1493L19 18V11Z"
+                                fill="#0A1629" />
+                        </svg>
+                    </button>
+                    <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+                        <input matStartDate formControlName="start" placeholder="Start date">
+                        <input matEndDate formControlName="end" placeholder="End date">
+                    </mat-date-range-input>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                    @if (range.controls.start.hasError('matStartDateInvalid')) {
+                    <mat-error>Invalid start date</mat-error>
+                    }
+                    @if (range.controls.end.hasError('matEndDateInvalid')) {
+                    <mat-error>Invalid end date</mat-error>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="main-content-dashboard">
+        <!-- workload event -->
+        <div class="workload-event-container">
+            <div class="row g-4">
+                <div class="col-12 col-lg-8">
+                    <div class="workload-container h-100">
+                        <div class="d-flex flex-column align-item-start justify-content-start" style="gap: 20px;">
+                            <!-- title -->
+                            <div class="title-wrapper">
+                                <h5 class="title">Workload</h5>
+                                <a class="view-all">
+                                    <span>View all</span>
+                                    <svg width="6" height="10" viewBox="0 0 6 10" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M0.292893 0.292893C0.653377 -0.0675907 1.22061 -0.0953203 1.6129 0.209705L1.70711 0.292893L5.70711 4.29289C6.06759 4.65338 6.09532 5.22061 5.7903 5.6129L5.70711 5.70711L1.70711 9.70711C1.31658 10.0976 0.683418 10.0976 0.292893 9.70711C-0.0675907 9.34662 -0.0953203 8.77939 0.209705 8.3871L0.292893 8.29289L3.585 5L0.292893 1.70711C-0.0675907 1.34662 -0.0953203 0.779392 0.209705 0.387101L0.292893 0.292893Z"
+                                            fill="#3F8CFF" />
+                                    </svg>
+                                </a>
+                            </div>
+                            <!-- list work's employees -->
+                            <div class="workload-content row row-cols-4 g-3">
+                                <div class="col">
+                                    <div class="employee-card">
+                                        <!-- img -->
+                                        <div class="d-flex flex-column align-items-center justify-content-center">
+                                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="30" cy="30" r="29" stroke="#7D8592"
+                                                    stroke-opacity="0.202032" stroke-width="2" />
+                                                <circle id="progressCircle" cx="30" cy="30" r="29" stroke="blue"
+                                                    stroke-width="2" stroke-dasharray="182" stroke-dashoffset="222"
+                                                    fill="none" stroke-linecap="round" transform="rotate(-90 30 30)" />
+                                                <foreignObject x="5" y="5" width="50" height="50">
+                                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                                        style="width:50px; height:50px; border-radius: 50%; overflow: hidden;">
+                                                        <img src="assets/avatar.jpg"
+                                                            style="border-radius: 50%; width:50px; height:50px; object-fit:cover;" />
+                                                    </div>
+                                                </foreignObject>
+                                            </svg>
+                                            <!-- name -->
+                                            <div class="name-department">
+                                                <h5 class="name">Shawn Stone</h5>
+                                                <p class="department">UI/UX Designer</p>
+                                            </div>
+                                            <!-- level -->
+                                            <div class="level-badge">
+                                                Middle
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="employee-card">
+                                        <!-- img -->
+                                        <div class="d-flex flex-column align-items-center justify-content-center">
+                                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="30" cy="30" r="29" stroke="#7D8592"
+                                                    stroke-opacity="0.202032" stroke-width="2" />
+                                                <circle id="progressCircle" cx="30" cy="30" r="29" stroke="blue"
+                                                    stroke-width="2" stroke-dasharray="182" stroke-dashoffset="222"
+                                                    fill="none" stroke-linecap="round" transform="rotate(-90 30 30)" />
+                                                <foreignObject x="5" y="5" width="50" height="50">
+                                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                                        style="width:50px; height:50px; border-radius: 50%; overflow: hidden;">
+                                                        <img src="assets/avatar.jpg"
+                                                            style="border-radius: 50%; width:50px; height:50px; object-fit:cover;" />
+                                                    </div>
+                                                </foreignObject>
+                                            </svg>
+                                            <!-- name -->
+                                            <div class="name-department">
+                                                <h5 class="name">Shawn Stone</h5>
+                                                <p class="department">UI/UX Designer</p>
+                                            </div>
+                                            <!-- level -->
+                                            <div class="level-badge">
+                                                Middle
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="employee-card">
+                                        <!-- img -->
+                                        <div class="d-flex flex-column align-items-center justify-content-center">
+                                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="30" cy="30" r="29" stroke="#7D8592"
+                                                    stroke-opacity="0.202032" stroke-width="2" />
+                                                <circle id="progressCircle" cx="30" cy="30" r="29" stroke="blue"
+                                                    stroke-width="2" stroke-dasharray="182" stroke-dashoffset="222"
+                                                    fill="none" stroke-linecap="round" transform="rotate(-90 30 30)" />
+                                                <foreignObject x="5" y="5" width="50" height="50">
+                                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                                        style="width:50px; height:50px; border-radius: 50%; overflow: hidden;">
+                                                        <img src="assets/avatar.jpg"
+                                                            style="border-radius: 50%; width:50px; height:50px; object-fit:cover;" />
+                                                    </div>
+                                                </foreignObject>
+                                            </svg>
+                                            <!-- name -->
+                                            <div class="name-department">
+                                                <h5 class="name">Shawn Stone</h5>
+                                                <p class="department">UI/UX Designer</p>
+                                            </div>
+                                            <!-- level -->
+                                            <div class="level-badge">
+                                                Middle
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="employee-card">
+                                        <!-- img -->
+                                        <div class="d-flex flex-column align-items-center justify-content-center">
+                                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="30" cy="30" r="29" stroke="#7D8592"
+                                                    stroke-opacity="0.202032" stroke-width="2" />
+                                                <circle id="progressCircle" cx="30" cy="30" r="29" stroke="blue"
+                                                    stroke-width="2" stroke-dasharray="182" stroke-dashoffset="222"
+                                                    fill="none" stroke-linecap="round" transform="rotate(-90 30 30)" />
+                                                <foreignObject x="5" y="5" width="50" height="50">
+                                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                                        style="width:50px; height:50px; border-radius: 50%; overflow: hidden;">
+                                                        <img src="assets/avatar.jpg"
+                                                            style="border-radius: 50%; width:50px; height:50px; object-fit:cover;" />
+                                                    </div>
+                                                </foreignObject>
+                                            </svg>
+                                            <!-- name -->
+                                            <div class="name-department">
+                                                <h5 class="name">Shawn Stone</h5>
+                                                <p class="department">UI/UX Designer</p>
+                                            </div>
+                                            <!-- level -->
+                                            <div class="level-badge">
+                                                Middle
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="employee-card">
+                                        <!-- img -->
+                                        <div class="d-flex flex-column align-items-center justify-content-center">
+                                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="30" cy="30" r="29" stroke="#7D8592"
+                                                    stroke-opacity="0.202032" stroke-width="2" />
+                                                <circle id="progressCircle" cx="30" cy="30" r="29" stroke="blue"
+                                                    stroke-width="2" stroke-dasharray="182" stroke-dashoffset="222"
+                                                    fill="none" stroke-linecap="round" transform="rotate(-90 30 30)" />
+                                                <foreignObject x="5" y="5" width="50" height="50">
+                                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                                        style="width:50px; height:50px; border-radius: 50%; overflow: hidden;">
+                                                        <img src="assets/avatar.jpg"
+                                                            style="border-radius: 50%; width:50px; height:50px; object-fit:cover;" />
+                                                    </div>
+                                                </foreignObject>
+                                            </svg>
+                                            <!-- name -->
+                                            <div class="name-department">
+                                                <h5 class="name">Shawn Stone</h5>
+                                                <p class="department">UI/UX Designer</p>
+                                            </div>
+                                            <!-- level -->
+                                            <div class="level-badge">
+                                                Middle
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="employee-card">
+                                        <!-- img -->
+                                        <div class="d-flex flex-column align-items-center justify-content-center">
+                                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="30" cy="30" r="29" stroke="#7D8592"
+                                                    stroke-opacity="0.202032" stroke-width="2" />
+                                                <circle id="progressCircle" cx="30" cy="30" r="29" stroke="blue"
+                                                    stroke-width="2" stroke-dasharray="182" stroke-dashoffset="222"
+                                                    fill="none" stroke-linecap="round" transform="rotate(-90 30 30)" />
+                                                <foreignObject x="5" y="5" width="50" height="50">
+                                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                                        style="width:50px; height:50px; border-radius: 50%; overflow: hidden;">
+                                                        <img src="assets/avatar.jpg"
+                                                            style="border-radius: 50%; width:50px; height:50px; object-fit:cover;" />
+                                                    </div>
+                                                </foreignObject>
+                                            </svg>
+                                            <!-- name -->
+                                            <div class="name-department">
+                                                <h5 class="name">Shawn Stone</h5>
+                                                <p class="department">UI/UX Designer</p>
+                                            </div>
+                                            <!-- level -->
+                                            <div class="level-badge">
+                                                Middle
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="employee-card">
+                                        <!-- img -->
+                                        <div class="d-flex flex-column align-items-center justify-content-center">
+                                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="30" cy="30" r="29" stroke="#7D8592"
+                                                    stroke-opacity="0.202032" stroke-width="2" />
+                                                <circle id="progressCircle" cx="30" cy="30" r="29" stroke="blue"
+                                                    stroke-width="2" stroke-dasharray="182" stroke-dashoffset="222"
+                                                    fill="none" stroke-linecap="round" transform="rotate(-90 30 30)" />
+                                                <foreignObject x="5" y="5" width="50" height="50">
+                                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                                        style="width:50px; height:50px; border-radius: 50%; overflow: hidden;">
+                                                        <img src="assets/avatar.jpg"
+                                                            style="border-radius: 50%; width:50px; height:50px; object-fit:cover;" />
+                                                    </div>
+                                                </foreignObject>
+                                            </svg>
+                                            <!-- name -->
+                                            <div class="name-department">
+                                                <h5 class="name">Shawn Stone</h5>
+                                                <p class="department">UI/UX Designer</p>
+                                            </div>
+                                            <!-- level -->
+                                            <div class="level-badge">
+                                                Middle
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="employee-card">
+                                        <!-- img -->
+                                        <div class="d-flex flex-column align-items-center justify-content-center">
+                                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="30" cy="30" r="29" stroke="#7D8592"
+                                                    stroke-opacity="0.202032" stroke-width="2" />
+                                                <circle id="progressCircle" cx="30" cy="30" r="29" stroke="blue"
+                                                    stroke-width="2" stroke-dasharray="182" stroke-dashoffset="222"
+                                                    fill="none" stroke-linecap="round" transform="rotate(-90 30 30)" />
+                                                <foreignObject x="5" y="5" width="50" height="50">
+                                                    <div xmlns="http://www.w3.org/1999/xhtml"
+                                                        style="width:50px; height:50px; border-radius: 50%; overflow: hidden;">
+                                                        <img src="assets/avatar.jpg"
+                                                            style="border-radius: 50%; width:50px; height:50px; object-fit:cover;" />
+                                                    </div>
+                                                </foreignObject>
+                                            </svg>
+                                            <!-- name -->
+                                            <div class="name-department">
+                                                <h5 class="name">Shawn Stone</h5>
+                                                <p class="department">UI/UX Designer</p>
+                                            </div>
+                                            <!-- level -->
+                                            <div class="level-badge">
+                                                Middle
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="event-nearst-container">
+                        <!-- title -->
+                        <div class="title-wrapper">
+                            <h5 class="title">Nearest event</h5>
+                            <a class="view-all">
+                                <span>View all</span>
+                                <svg width="6" height="10" viewBox="0 0 6 10" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M0.292893 0.292893C0.653377 -0.0675907 1.22061 -0.0953203 1.6129 0.209705L1.70711 0.292893L5.70711 4.29289C6.06759 4.65338 6.09532 5.22061 5.7903 5.6129L5.70711 5.70711L1.70711 9.70711C1.31658 10.0976 0.683418 10.0976 0.292893 9.70711C-0.0675907 9.34662 -0.0953203 8.77939 0.209705 8.3871L0.292893 8.29289L3.585 5L0.292893 1.70711C-0.0675907 1.34662 -0.0953203 0.779392 0.209705 0.387101L0.292893 0.292893Z"
+                                        fill="#3F8CFF" />
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="event-content-container">
+                            <div class="row row-cols-1 g-4">
+                                <div class="col">
+                                    <div class="d-flex flex-row gap-3">
+                                        <div class="indicator-event" style="background-color: #3F8CFF;">
+                                        </div>
+                                        <div class="event-wrapper w-100">
+                                            <div
+                                                class="d-flex flex-column align-items-center justify-content-between gap-1 h-100">
+                                                <div
+                                                    class="d-flex flex-row align-items-start justify-content-between w-100">
+                                                    <h5 class="event-name">Presentation of the new department</h5>
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M12.6129 4.2097L12.7071 4.29289L17.7071 9.29289C18.0976 9.68342 18.0976 10.3166 17.7071 10.7071C17.3466 11.0676 16.7794 11.0953 16.3871 10.7903L16.2929 10.7071L13 7.415V19C13 19.5523 12.5523 20 12 20C11.4872 20 11.0645 19.614 11.0067 19.1166L11 19V7.415L7.70711 10.7071C7.34662 11.0676 6.77939 11.0953 6.3871 10.7903L6.29289 10.7071C5.93241 10.3466 5.90468 9.77939 6.2097 9.3871L6.29289 9.29289L11.2929 4.29289C11.6534 3.93241 12.2206 3.90468 12.6129 4.2097Z"
+                                                            fill="#FFBD21" />
+                                                    </svg>
+                                                </div>
+                                                <div class="d-flex flex-row align-items-center justify-content-between w-100"
+                                                    style="margin-top: 9px;">
+                                                    <p class="time">
+                                                        Today | 5:00 PM
+                                                    </p>
+                                                    <div class="duration">
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                d="M12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM12.9933 8.88338C12.9355 8.38604 12.5128 8 12 8C11.4477 8 11 8.44772 11 9V12.75L11.0072 12.8698C11.0498 13.2244 11.28 13.5333 11.6154 13.6731L14.6154 14.9231L14.7256 14.9617C15.2069 15.0997 15.7258 14.858 15.9231 14.3846L15.9617 14.2744C16.0997 13.7931 15.858 13.2742 15.3846 13.0769L13 12.083V9L12.9933 8.88338Z"
+                                                                fill="#7D8592" />
+                                                        </svg>
+                                                        <span>4h</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex flex-row gap-3">
+                                        <div class="indicator-event" style="background-color: #DE92EB;">
+                                        </div>
+                                        <div class="event-wrapper w-100">
+                                            <div
+                                                class="d-flex flex-column align-items-center justify-content-between gap-1 h-100">
+                                                <div
+                                                    class="d-flex flex-row align-items-start justify-content-between w-100">
+                                                    <h5 class="event-name">Anna’s Birthday</h5>
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M12.6129 19.7903L12.7071 19.7071L17.7071 14.7071C18.0976 14.3166 18.0976 13.6834 17.7071 13.2929C17.3466 12.9324 16.7794 12.9047 16.3871 13.2097L16.2929 13.2929L13 16.585V5C13 4.44772 12.5523 4 12 4C11.4872 4 11.0645 4.38604 11.0067 4.88338L11 5V16.585L7.70711 13.2929C7.34662 12.9324 6.77939 12.9047 6.3871 13.2097L6.29289 13.2929C5.93241 13.6534 5.90468 14.2206 6.2097 14.6129L6.29289 14.7071L11.2929 19.7071C11.6534 20.0676 12.2206 20.0953 12.6129 19.7903Z"
+                                                            fill="#0AC947" />
+                                                    </svg>
+
+                                                </div>
+                                                <div class="d-flex flex-row align-items-center justify-content-between w-100"
+                                                    style="margin-top: 9px;">
+                                                    <p class="time">
+                                                        Today | 6:00 PM
+                                                    </p>
+                                                    <div class="duration">
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                d="M12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM12.9933 8.88338C12.9355 8.38604 12.5128 8 12 8C11.4477 8 11 8.44772 11 9V12.75L11.0072 12.8698C11.0498 13.2244 11.28 13.5333 11.6154 13.6731L14.6154 14.9231L14.7256 14.9617C15.2069 15.0997 15.7258 14.858 15.9231 14.3846L15.9617 14.2744C16.0997 13.7931 15.858 13.2742 15.3846 13.0769L13 12.083V9L12.9933 8.88338Z"
+                                                                fill="#7D8592" />
+                                                        </svg>
+                                                        <span>4h</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="d-flex flex-row gap-3">
+                                        <div class="indicator-event" style="background-color: #DE92EB;">
+                                        </div>
+                                        <div class="event-wrapper w-100">
+                                            <div
+                                                class="d-flex flex-column align-items-center justify-content-between gap-1 h-100">
+                                                <div
+                                                    class="d-flex flex-row align-items-start justify-content-between w-100">
+                                                    <h5 class="event-name">Ray’s Birthday</h5>
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M12.6129 19.7903L12.7071 19.7071L17.7071 14.7071C18.0976 14.3166 18.0976 13.6834 17.7071 13.2929C17.3466 12.9324 16.7794 12.9047 16.3871 13.2097L16.2929 13.2929L13 16.585V5C13 4.44772 12.5523 4 12 4C11.4872 4 11.0645 4.38604 11.0067 4.88338L11 5V16.585L7.70711 13.2929C7.34662 12.9324 6.77939 12.9047 6.3871 13.2097L6.29289 13.2929C5.93241 13.6534 5.90468 14.2206 6.2097 14.6129L6.29289 14.7071L11.2929 19.7071C11.6534 20.0676 12.2206 20.0953 12.6129 19.7903Z"
+                                                            fill="#0AC947" />
+                                                    </svg>
+
+                                                </div>
+                                                <div class="d-flex flex-row align-items-center justify-content-between w-100"
+                                                    style="margin-top: 9px;">
+                                                    <p class="time">
+                                                        Tomorrow | 5:00 PM
+                                                    </p>
+                                                    <div class="duration">
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                d="M12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM12.9933 8.88338C12.9355 8.38604 12.5128 8 12 8C11.4477 8 11 8.44772 11 9V12.75L11.0072 12.8698C11.0498 13.2244 11.28 13.5333 11.6154 13.6731L14.6154 14.9231L14.7256 14.9617C15.2069 15.0997 15.7258 14.858 15.9231 14.3846L15.9617 14.2744C16.0997 13.7931 15.858 13.2742 15.3846 13.0769L13 12.083V9L12.9933 8.88338Z"
+                                                                fill="#7D8592" />
+                                                        </svg>
+                                                        <span>4h</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- project activity  -->
+        <div class="project-activity-container">
+            <div class="row g-4">
+                <div class="col-12 col-lg-8">
+                    <div class="projects-container">
+                        <!-- title -->
+                        <div class="title-wrapper">
+                            <h5 class="title">Projects</h5>
+                            <a class="view-all">
+                                <span>View all</span>
+                                <svg width="6" height="10" viewBox="0 0 6 10" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M0.292893 0.292893C0.653377 -0.0675907 1.22061 -0.0953203 1.6129 0.209705L1.70711 0.292893L5.70711 4.29289C6.06759 4.65338 6.09532 5.22061 5.7903 5.6129L5.70711 5.70711L1.70711 9.70711C1.31658 10.0976 0.683418 10.0976 0.292893 9.70711C-0.0675907 9.34662 -0.0953203 8.77939 0.209705 8.3871L0.292893 8.29289L3.585 5L0.292893 1.70711C-0.0675907 1.34662 -0.0953203 0.779392 0.209705 0.387101L0.292893 0.292893Z"
+                                        fill="#3F8CFF" />
+                                </svg>
+                            </a>
+                        </div>
+                        <!-- list project -->
+                        <div class="d-flex flex-column align-items-center justify-content-start"
+                            style="gap: 20px; margin-top: 20px;">
+                            <div class="project-wrapper">
+                                <div class="row row-cols-2">
+                                    <div class="col">
+                                        
+                                    </div>
+                                    <div class="col"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+
+                </div>
+            </div>
+        </div>
+    </section>
+</ng-container>

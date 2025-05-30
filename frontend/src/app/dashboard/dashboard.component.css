@@ -1,0 +1,167 @@
+:host {
+    width: 100%;
+}
+
+#header-dashboard .welcome-text {
+    width: 100%;
+    color: var(--text-color-disabled);
+    font-weight: var(--font-weight-regular);
+}
+
+#header-dashboard .title-calendar-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+#header-dashboard .title-calendar-container .title {
+    font-size: 36px;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-color-primary);
+}
+
+.daterange-picker-custom-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 14px;
+    border-radius: var(--radius-md);
+    background-color: #E6EDF5;
+    padding: 11px 15px 13px 16px;
+}
+
+.btn-toggle-picker {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+}
+
+.workload-event-container {
+    margin-top: 28px;
+}
+
+.project-activity-container {
+    margin-top: 43px;
+}
+
+.workload-container {
+    background-color: var(--background-white);
+    border-radius: var(--radius-lg);
+    padding: 28px 18px 16px 18px;
+}
+
+.event-nearst-container {
+    background-color: var(--background-white);
+    border-radius: var(--radius-lg);
+    padding: 28px 22px 28px 24px;
+}
+
+.title-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title-wrapper .title {
+    font-size: 22px;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-color-primary);
+}
+
+.title-wrapper .view-all {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 11px;
+    color: var(--primary-color);
+}
+
+.employee-card {
+    padding: 18px 28px;
+    background-color: var(--background-color);
+    border-radius: var(--radius-lg);
+}
+
+.employee-card .name-department {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    margin-top: 16px;
+}
+
+.employee-card .name-department .name {
+    font-size: 16px;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-color-primary);
+}
+
+.employee-card .name-department .department {
+    font-size: 14px;
+    font-weight: var(--font-weight-regular);
+    color: var(--text-color-primary);
+}
+
+.level-badge {
+    margin-top: 9px;
+    padding: 2px 3.5px 2px 3.5px;
+    border: 1px solid var(--text-color-disabled);
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-color-disabled);
+}
+
+.event-content-container {
+    margin-top: 24px;
+
+}
+
+
+.event-wrapper .event-name {
+    width: 185px;
+    height: 48px;
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: var(--font-weight-bold);
+}
+
+.event-wrapper .time {
+    font-size: 14px;
+    font-weight: var(--font-weight-regular);
+    color: #91929E;
+}
+
+.event-wrapper .duration {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    background-color: #F4F9FD;
+    color: var(--text-color-disabled);
+    border-radius: var(--radius-sm);
+    padding: 6px 8px;
+}
+
+.event-wrapper {
+    height: 100%;
+    padding-bottom: 6px;
+    padding-right: 2px;
+    margin-top: 5px;
+}
+
+.indicator-event {
+    height: 104px;
+    width: 4px;
+    border-radius: 4px;
+}
