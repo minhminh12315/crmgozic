@@ -1,5 +1,32 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+env/
+venv/
+ENV/
+quynh/
+cl_env/
+
+# Env files and secrets
+*.env
+*.env*
+.DS_Store
+Thumbs.db
+
+# Database (PostgreSQL/SQLite)
+*.db
+*.dump
+*.pgsql
+*.psql
+*.sql
+*.sqlite3
+db.sqlite3
+
 # Compiled output
 /dist
 /tmp
@@ -36,10 +63,6 @@ yarn-error.log
 /libpeerconnection.log
 testem.log
 /typings
-
-# System files
-.DS_Store
-Thumbs.db
 
 __pycache__/
 *.pyc
