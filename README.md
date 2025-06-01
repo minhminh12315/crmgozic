@@ -31,6 +31,7 @@ cd crmgozic
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
+cd backend
 pip install -r requirements.txt
 ```
 
@@ -47,7 +48,6 @@ DB_PORT=3306
 ```
 
 ### 4. Migrate
-- cd backend
 ```
 python manage.py makemigrations
 python manage.py migrate
