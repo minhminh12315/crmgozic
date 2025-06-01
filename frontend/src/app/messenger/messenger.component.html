@@ -1,0 +1,189 @@
+<div class="messenger-container">
+    <!-- Left Panel -->
+    <div class="left-panel">
+        <!-- Header -->
+        <div class="left-header">
+            <h2>Conversations</h2>
+            <div class="header-actions">
+                <!-- <button class="search-btn">
+                    <i class="bi bi-search"></i>
+                </button> -->
+                <button class="new-chat-btn" (click)="openNewChatModal()">
+                    <i class="bi bi-plus"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Chat Categories -->
+        <!-- <div class="chat-categories">
+            <div class="category active">
+                <i class="bi bi-chat-dots"></i>
+                <span>Direct Messages</span>
+                <i class="bi bi-chevron-down"></i>
+            </div>
+            <div class="category">
+                <i class="bi bi-people"></i>
+                <span>Groups</span>
+                <i class="bi bi-chevron-down"></i>
+            </div>
+        </div> -->
+
+        <!-- Chat List -->
+        <div class="chat-list">
+            <div *ngFor="let room of chatRooms" class="chat-item" [class.active]="room.id === selectedRoom?.id"
+                (click)="selectRoom(room)">
+                <!-- <div class="chat-avatar">
+                    <img [src]="'assets/avatars/default.png'" alt="Chat avatar">
+                </div> -->
+                <div class="chat-info">
+                    <div class="chat-name">{{ getRoomDisplayName(room) }}</div>
+                    <div class="chat-preview">{{ getLastMessage(room) }}</div>
+                </div>
+                <div class="chat-meta">
+                    <div class="chat-time">{{ getLastMessageTime(room) }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Panel - Chat Window -->
+    <div id="message-container" class="right-panel" *ngIf="selectedRoom">
+        <!-- Chat Header -->
+        <div class="chat-header">
+            <div class="user-info">
+                <!-- <img [src]="'assets/avatars/default.png'" alt="User avatar" class="user-avatar"> -->
+                <div class="user-details">
+                    <div class="user-name">{{ selectedRoom.name ? getRoomDisplayName(selectedRoom) : '' }}</div>
+                    <!-- <div class="user-status">UI/UX Designer</div> -->
+                </div>
+            </div>
+            <div class="header-actions">
+                <!-- <button><i class="bi bi-search"></i></button>
+                <button><i class="bi bi-bell"></i></button> -->
+                <button><i class="bi bi-three-dots-vertical"></i></button>
+            </div>
+        </div>
+
+        <!-- Messages Area -->
+        <div class="messages-container">
+            <!-- <div class="date-separator">
+                <span>Friday, September 8</span>
+            </div> -->
+
+            <div class="messages-list" #chatBox>
+                <div *ngFor="let msg of messages"
+                    [ngClass]="{ 'message-item': true, 'my-message': msg.sender_username === currentUsername, 'other-message': msg.sender_username !== currentUsername }">
+                    <div class="message-content">
+                        <div class="message-time">{{ formatDate(msg.created_at) }}</div>
+                        <div class="message-sender">{{ msg.sender_username}}</div>
+                        <div class="message-text">{{ msg.content }}</div>
+                        <div *ngIf="msg.link" class="message-attachment link">
+                            <a [href]="msg.link" target="_blank">
+                                <i class="bi bi-link-45deg"></i>
+                                {{ msg.link }}
+                            </a>
+                        </div>
+                        <div *ngIf="msg.file" class="message-attachment file">
+                            <a [href]="msg.file" target="_blank" download>
+                                <i class="bi bi-file-earmark"></i>
+                                {{ getFilename(msg.file) }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Message Input -->
+        <div class="message-input-area">
+            <div class="attachment-preview" *ngIf="selectedFile || selectedLink">
+                <div class="selected-file" *ngIf="selectedFile">
+                    <i class="bi bi-file-earmark"></i>
+                    <span>{{ selectedFile.name }}</span>
+                    <button class="remove-btn" (click)="removeSelectedFile()">×</button>
+                </div>
+                <div class="selected-link" *ngIf="selectedLink">
+                    <i class="bi bi-link-45deg"></i>
+                    <span>{{ selectedLink }}</span>
+                    <button class="remove-btn" (click)="removeSelectedLink()">×</button>
+                </div>
+            </div>
+
+            <div class="input-actions">
+                <label class="action-btn">
+                    <input #fileInput type="file" (change)="onFileSelected($event)" style="display: none;">
+                    <i class="bi bi-paperclip"></i>
+                </label>
+                <label class="action-btn" (click)="openLinkInput()">
+                    <i class="bi bi-link-45deg"></i>
+                </label>
+                <div class="message-input">
+                    <input type="text" [(ngModel)]="messageInput" placeholder="Type your message here..."
+                        (keyup.enter)="sendMessage()">
+                </div>
+                <button class="send-btn" (click)="sendMessage()">
+                    <i class="bi bi-send"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state" *ngIf="!selectedRoom">
+        <div class="empty-state-content">
+            <i class="bi bi-chat-dots"></i>
+            <h3>Select a conversation to start messaging</h3>
+        </div>
+    </div>
+
+    <!-- New Chat Modal -->
+    <div class="modal-overlay" *ngIf="showNewChatModal">
+        <div class="modal-content">
+            <h3>Create New Chat</h3>
+            <div class="form-group">
+                <label>Chat Name</label>
+                <input type="text" [(ngModel)]="newChatName" placeholder="Enter chat name">
+            </div>
+            <div class="form-group">
+                <label>Chat Type</label>
+                <div class="chat-type-options">
+                    <label>
+                        <input type="radio" [(ngModel)]="isGroupChat" [value]="false">
+                        Direct Message
+                    </label>
+                    <label>
+                        <input type="radio" [(ngModel)]="isGroupChat" [value]="true">
+                        Group Chat
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Select Users</label>
+                <div class="user-list">
+                    <div *ngFor="let user of users" class="user-item" [class.selected]="selectedUsers.includes(user.id)"
+                        (click)="toggleUserSelection(user.id)">
+                        <span class="user-name">{{ user.username }}</span>
+                        <i class="bi bi-check2" *ngIf="selectedUsers.includes(user.id)"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="cancel-btn" (click)="cancelNewChat()">Cancel</button>
+                <button class="add-btn" (click)="createNewChat()"
+                    [disabled]="!newChatName || selectedUsers.length === 0">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link Modal -->
+    <div class="modal-overlay" *ngIf="showLinkModal">
+        <div class="modal-content">
+            <h3>Add Link</h3>
+            <input type="text" [(ngModel)]="linkInput" placeholder="Enter URL">
+            <div class="modal-actions">
+                <button class="cancel-btn" (click)="cancelLink()">Cancel</button>
+                <button class="add-btn" (click)="addLink()">Add</button>
+            </div>
+        </div>
+    </div>
+</div>

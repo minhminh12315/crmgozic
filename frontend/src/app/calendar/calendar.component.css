@@ -1,5 +1,6 @@
 .calendar-container {
     padding: 20px;
+    min-width: 1055px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -164,10 +165,12 @@
 .event-content::-webkit-scrollbar {
     height: 4px;
 }
+
 .event-content::-webkit-scrollbar-thumb {
     background-color: #ccc;
     border-radius: 2px;
 }
+
 .event-content::-webkit-scrollbar-track {
     background: transparent;
 }
@@ -192,15 +195,18 @@
 }
 
 .high-priority {
-    color: #fc9f2f; /* Orange color for high priority */
+    color: #fc9f2f;
+    /* Orange color for high priority */
 }
 
 .medium-priority {
-    color: #ffd700; /* Yellow color for medium priority */
+    color: #ffd700;
+    /* Yellow color for medium priority */
 }
 
 .low-priority {
-    color: #69ed6d; /* Green color for low priority */
+    color: #69ed6d;
+    /* Green color for low priority */
 }
 
 .more-events {
@@ -423,11 +429,11 @@
     border-radius: 50%;
 }
 
-.toggle-switch input:checked + label {
+.toggle-switch input:checked+label {
     background-color: #4285f4;
 }
 
-.toggle-switch input:checked + label:before {
+.toggle-switch input:checked+label:before {
     transform: translateX(26px);
 }
 
@@ -484,6 +490,7 @@
     color: white;
     border-color: #4285f4;
 }
+
 .repeat-time input {
     width: 100%;
     padding: 10px;
@@ -491,7 +498,8 @@
     border-radius: 8px;
     font-size: 14px;
 }
-.repeat-time .input-icon{
+
+.repeat-time .input-icon {
     position: relative;
 }
 

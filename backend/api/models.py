@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class employee(models.Model):
     first_name = models.CharField(max_length=30)
@@ -103,3 +104,37 @@ class event(models.Model):
         if self.repeat_every_day == True:
             self.repeat_days = 'Mon, Tue, Wed, Thu, Fri, Sat, Sun'
         super().save(*args, **kwargs)
+
+class ChatRoom(models.Model):
+    name = models.CharField(max_length=255, blank=True, null=True)  # optional group name
+    is_group = models.BooleanField(default=False)
+    members = models.ManyToManyField(User, related_name='chatrooms')
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f"ChatRoom {self.id} - {self.name} - {self.is_group}"
+    
+    def get_members(self):
+        return self.members.all()
+    
+
+
+class Message(models.Model):
+    chatroom = models.ForeignKey(ChatRoom, on_delete=models.CASCADE, related_name='messages')
+    sender = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.TextField(null=True, blank=True)
+    file = models.FileField(upload_to='chat_files/', blank=True, null=True)
+    mentioned_users = models.ManyToManyField(User, related_name='mentions', blank=True)
+    link = models.URLField(blank=True, null=True)
+    is_edited = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return f"{self.content}"
+
+class TypingStatus(models.Model):
+    chatroom = models.ForeignKey(ChatRoom, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    is_typing = models.BooleanField(default=False)
+    updated_at = models.DateTimeField(auto_now=True)
