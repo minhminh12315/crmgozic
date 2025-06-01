@@ -16,9 +16,7 @@ cd frontend
 npm install
 npm start
 
-# CRM Gozic
-
-## ⚙️ Cài đặt nhanh
+# ⚙️ Cài đặt nhanh
 
 ### 1. Clone project
 
@@ -26,6 +24,7 @@ npm start
 git clone https://github.com/minhminh12315/crmgozic.git
 cd crmgozic
 ```
+## Backend
 
 ### 2. Tạo virtual environment và cài dependencies
 
@@ -48,7 +47,7 @@ DB_PORT=3306
 ```
 
 ### 4. Migrate
-
+- cd backend
 ```
 python manage.py makemigrations
 python manage.py migrate
@@ -61,7 +60,10 @@ daphne backend.asgi:application
 ```
 
 ### 6. Chạy frontend
+- cd frontend
 - Bắt buộc phải chạy host 127.0.0.1 để kết nối với websocket
 ```
+npm install
+npm start
 ng serve --host 127.0.0.1 --port 4200
 ```
