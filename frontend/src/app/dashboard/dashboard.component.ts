@@ -3,8 +3,9 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 import { DateAdapter, MAT_DATE_FORMATS, NativeDateAdapter } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { CommonModule } from '@angular/common';
 // Custom Date Adapter để format ngày theo DD-MM-YYYY
-export class CustomDateAdapter extends NativeDateAdapter {
+class CustomDateAdapter extends NativeDateAdapter {
   override format(date: Date, displayFormat: string): string {
     if (displayFormat === 'input') {
       const day = date.getDate().toString().padStart(2, '0');
@@ -30,7 +31,7 @@ export const CUSTOM_DATE_FORMATS = {
 
 @Component({
   selector: 'app-dashboard',
-  imports: [MatFormFieldModule, MatDatepickerModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, MatFormFieldModule, MatDatepickerModule, FormsModule, ReactiveFormsModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
   providers: [

@@ -157,7 +157,7 @@ export class CalendarComponent implements OnInit {
                             }
                             return;
                         }
-                        
+
                         // Handle repeating events
                         this.workDays.forEach(day => {
                             if (day.fullDate < new Date(eventStartDate.getTime() - 86400000)) { // Subtract one day (24 * 60 * 60 * 1000 ms)
@@ -218,13 +218,13 @@ export class CalendarComponent implements OnInit {
             const diff = day === 0 ? -6 : 1 - day;
             const monday = new Date(d);
             monday.setDate(d.getDate() + diff);
-            monday.setHours(0,0,0,0);
+            monday.setHours(0, 0, 0, 0);
             return monday;
         };
-    
+
         const monday1 = getMonday(date1);
         const monday2 = getMonday(date2);
-    
+
         return monday1.getTime() === monday2.getTime();
     }
 

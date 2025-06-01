@@ -453,27 +453,31 @@
         <div class="login-form-container">
             <div class="d-flex flex-column align-items-center justify-content-start">
                 <h5 class="login-title">Sign In to Woorkroom</h5>
-                <form (ngSubmit)="login()" class="login-form">
+                <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form">
                     <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" class="form-control" placeholder="youremail@gmail.com">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" formControlName="username" class="form-control"
+                            placeholder="username"
+                            [class.is-invalid]="loginForm.get('username')?.invalid && loginForm.get('username')?.touched">
                     </div>
                     <div class="form-group">
                         <label for="current-password">Password</label>
-                        <input type="password" id="current-password" class="form-control" placeholder="password">
+                        <input type="password" id="current-password" formControlName="password" class="form-control"
+                            placeholder="password"
+                            [class.is-invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
                     </div>
                     <div class="rememberme-forgot-container">
                         <div class="d-flex flex-row -align-items-center justify-content-start rememberMe"
                             style="gap: 14px;">
-                            <input type="checkbox" id="remember">
+                            <input type="checkbox" id="remember" formControlName="rememberMe">
                             <label for="remember">Remember me</label>
                         </div>
                         <a href="" class="forgot-pass">Forgot Password</a>
                     </div>
                     <div class="button-sign-container">
-                        <button type="submit" class="btn btn-primary">
-                            <span>Sign In</span>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid || isLoading">
+                            <span>{{ isLoading ? 'Signing in...' : 'Sign In' }}</span>
+                            <svg *ngIf="!isLoading" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M19.7903 11.3871L19.7071 11.2929L14.7071 6.29289C14.3166 5.90237 13.6834 5.90237 13.2929 6.29289C12.9324 6.65338 12.9047 7.22061 13.2097 7.6129L13.2929 7.70711L16.585 11H5C4.44772 11 4 11.4477 4 12C4 12.5128 4.38604 12.9355 4.88338 12.9933L5 13H16.585L13.2929 16.2929C12.9324 16.6534 12.9047 17.2206 13.2097 17.6129L13.2929 17.7071C13.6534 18.0676 14.2206 18.0953 14.6129 17.7903L14.7071 17.7071L19.7071 12.7071C20.0676 12.3466 20.0953 11.7794 19.7903 11.3871Z"
@@ -482,7 +486,7 @@
                         </button>
                         <a class="dont-have-acc">Don't have an account?</a>
                     </div>
-                    <div *ngIf="error" class="text-danger">{{ error }}</div>
+                    <div *ngIf="error" class="alert alert-danger mt-3">{{ error }}</div>
                 </form>
             </div>
         </div>
