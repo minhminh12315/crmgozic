@@ -1,10 +1,11 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Injectable } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DateAdapter, MAT_DATE_FORMATS, NativeDateAdapter } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
 // Custom Date Adapter để format ngày theo DD-MM-YYYY
+@Injectable()
 class CustomDateAdapter extends NativeDateAdapter {
   override format(date: Date, displayFormat: string): string {
     if (displayFormat === 'input') {
@@ -41,7 +42,6 @@ export const CUSTOM_DATE_FORMATS = {
 
 })
 export class DashboardComponent {
-
   readonly range = new FormGroup({
     start: new FormControl(new Date(new Date().setDate(1))), // Ngày đầu tháng
     end: new FormControl(new Date(new Date().setMonth(new Date().getMonth() + 1, 0)))

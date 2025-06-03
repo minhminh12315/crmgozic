@@ -45,13 +45,14 @@ body {
     background-color: var(--background-color);
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after {
     font-family: var(--family-font);
-    box-sizing: border-box;
+    box-sizing: inherit;
 }
 
 button {
@@ -209,12 +210,20 @@ textarea {
     gap: 8px;
 }
 
-.form-group label{
+.form-group label {
     padding-left: 6px;
     font-size: 14px;
     font-weight: var(--font-weight-bold);
     color: var(--text-color-disabled);
     line-height: 24px;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
