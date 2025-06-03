@@ -12,8 +12,9 @@ export const routes: Routes = [
     {
         path: '',
         component: AdminLayoutComponent,
-        // canMatch: [authGuard],
+        canActivate: [authGuard],
         children: [
+            
             { path: 'dashboard', component: DashboardComponent },
             { path: 'calendar', component: CalendarComponent },
             { path: 'messenger', component: MessengerComponent },

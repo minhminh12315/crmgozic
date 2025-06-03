@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { CanMatchFn } from '@angular/router';
 import { AuthService } from './services/auth.service';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 import { catchError, map, of } from 'rxjs';
 
 export const authGuard: CanMatchFn = (route, segments) => {
@@ -11,14 +11,14 @@ export const authGuard: CanMatchFn = (route, segments) => {
   return authService.checkAuth().pipe(
     map(isAuthenticated => {
       if (!isAuthenticated) {
-        router.navigate(['/login']);
+        router.navigate(['/sign-in']);
         return false;
       }
       return true;
     }),
     catchError(error => {
       console.error(error);
-      router.navigate(['/login']);
+      router.navigate(['/sign-in']);
       return of(false);
     })
   );
