@@ -5,6 +5,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { authGuard } from './auth.guard';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { MessengerComponent } from './messenger/messenger.component';
+import { ProjectComponent } from './project/project.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 export const routes: Routes = [
@@ -14,7 +16,8 @@ export const routes: Routes = [
         component: AdminLayoutComponent,
         canActivate: [authGuard],
         children: [
-            
+            { path: 'project', component: ProjectComponent },
+            { path: 'profile', component: ProfileComponent },
             { path: 'dashboard', component: DashboardComponent },
             { path: 'calendar', component: CalendarComponent },
             { path: 'messenger', component: MessengerComponent },
