@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { SideBarComponent } from '../side-bar/side-bar.component';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-header',
     standalone: true,
-    imports: [SideBarComponent, CommonModule],
+    imports: [SideBarComponent, CommonModule, RouterModule],
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.css']
 })

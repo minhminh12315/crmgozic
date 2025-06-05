@@ -144,22 +144,22 @@ textarea {
     border-radius: var(--radius-md);
 }
 
-.badeg .text-bg-disable {
+.badge .text-bg-disable {
     color: var(--text-color-disabled);
     background-color: rgba(125, 133, 146, 0.14);
 }
 
-.badeg .text-bg-primary {
+.badge .text-bg-primary {
     color: var(--primary-color);
     background-color: rgba(63, 82, 255, 0.12);
 }
 
-.badeg .text-bg-violet {
+.badge .text-bg-violet {
     color: var(--violet-color);
     background-color: rgba(196, 24, 230, 0.11);
 }
 
-.badeg .text-bg-success {
+.badge .text-bg-success {
     color: var(--success-bg-badge);
     background-color: var(--success-bg-badge);
 }
@@ -177,7 +177,7 @@ textarea {
 .badge .badge-success {
     color: var(--text-color-disabled);
     background-color: transparent;
-    border: 1px solid var(--text-color-disabled);
+    border: 1px solid var(--text-color-disabled);dá
 }
 
 .btn-close-custom {
@@ -218,12 +218,12 @@ textarea {
     line-height: 24px;
 }
 
-html,
-body {
-    height: 100%;
-}
-
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+.offcanvas-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(33, 85, 163, 16);
 }

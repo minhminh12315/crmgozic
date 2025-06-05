@@ -116,4 +116,5 @@
     border-radius: var(--radius-lg);
     margin-block: 10px;
     margin-right: 20px;
+    overflow: hidden;
 }
