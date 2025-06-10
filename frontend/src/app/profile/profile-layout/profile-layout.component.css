@@ -233,3 +233,352 @@
     font-weight: var(--font-weight-bold);
 }
 
+#vacationRequest .modal-dialog {
+    border-radius: var(--radius-lg);
+    width: auto;
+    max-width: 630px;
+}
+
+#vacationRequest .modal-content {
+    border-radius: var(--radius-lg);
+
+}
+
+#vacationRequest .modal-content .modal-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+    padding: 30px 30px 30px 60px;
+    border: none;
+}
+
+#vacationRequest .modal-content .modal-header .modal-title {
+    margin-top: 29px;
+    font-size: 22px;
+    font-weight: bold;
+
+}
+
+#vacationRequest .modal-content .modal-body {
+    margin: 0px 8px 57px 60px;
+    padding: 0px 8px 57px 60px;
+    padding: 0;
+    padding-right: 44px;
+    overflow-x: hidden;
+    width: auto;
+    /* Cho phép kích thước tự động theo nội dung */
+    max-width: 100%;
+}
+
+#vacationRequest .modal-content .modal-body .form-request-vacation-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+#vacationRequest .modal-content .modal-body .form-request-vacation-container .request-type-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+#vacationRequest .modal-content .modal-body .form-request-vacation-container .request-type-container .title {
+    font-size: 14px;
+    color: #7D8592;
+    line-height: 24px;
+    font-weight: bold;
+}
+
+#vacationRequest .modal-content .modal-body .form-request-vacation-container .request-type-container .list-request-type {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+    width: 100%;
+}
+
+#vacationRequest .modal-content .modal-body .form-request-vacation-container .request-type-container .list-request-type .custom-radio {
+    border: 1px solid #D8E0F0;
+    border-radius: 10px;
+    padding: 12px 18px;
+    height: 48px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+
+#vacationRequest .modal-content .modal-body .form-request-vacation-container .days-hours-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg);
+    background-color: #E4E6E8;
+    padding: 4px 5px;
+}
+
+#vacationRequest .modal-content .modal-body .form-request-vacation-container .days-hours-container li {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: transparent;
+    transition: all 0.15s ease-in-out;
+}
+
+#vacationRequest .modal-content .modal-body .form-request-vacation-container .days-hours-container li a {
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    font-weight: var(--font-weight-regular);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#vacationRequest .modal-content .modal-body .form-request-vacation-container .days-hours-container li.active {
+    background-color: var(--primary-color);
+}
+
+#vacationRequest .modal-content .modal-body .form-request-vacation-container .days-hours-container li.active a {
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    color: var(--text-color-secondary);
+}
+
+.request-calendar {
+    border: 1px solid #D8E0F0;
+    border-radius: var(--radius-md);
+    padding: 30px 42px;
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    justify-content: start;
+    align-items: center;
+}
+
+.calendar-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.calendar-navigation button {
+    background-color: var(--background-white);
+    border: none;
+    outline: none;
+}
+
+.calendar-navigation h2 {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 26px;
+    letter-spacing: 0px;
+}
+
+.weekdays-header {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    /* gap: 10px; */
+}
+
+.weekdays-header .weekday {
+    width: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F4F9FD;
+    color: #7D8592;
+    padding: 3px 10px;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--radius-xs);
+    margin: 5px;
+}
+
+.days-grid {
+    width: 100%;
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    /* gap: 10px; */
+}
+
+.day-number {
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: var(--radius-md);
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--text-color-primary);
+    line-height: 24px;
+    font-weight: regular;
+    transition: all 0.1s ease-in-out;
+    padding: 14px 12px;
+    margin: 5px;
+}
+
+.day-number:hover {
+    color: var(--text-color-secondary);
+    font-weight: bold;
+    background: #15C0E6;
+}
+
+/* Các ô không thuộc tháng hiện (tháng trước/sau) */
+.day-cell.other-month .day-number {
+    padding: 10px;
+    color: #B2B8C2;
+    pointer-events: none;
+}
+
+/* Kiểu khi ngày được chọn */
+.day-number.selected {
+    background-color: #15C0E6;
+    color: var(--text-color-secondary);
+    font-weight: bold;
+    border: 1px solid var(--text-color-primary);
+}
+
+.day-number.selected-range {
+    background-color: #15C0E6;
+    /* Nền xanh */
+    color: #fff;
+}
+
+/* Ở bên trái (ô đầu của block) */
+.day-number.range-start {
+    width: 100%;
+    border-radius: 0;
+    border-top-left-radius: var(--radius-md);
+    border-bottom-left-radius: var(--radius-md);
+}
+
+/* Ở giữa: bỏ bo góc để các ô liền kề trông như một khối liên tục.
+Đồng thời, dùng negative margin để “nối” phần background vượt qua padding của cell */
+.day-number.range-middle {
+    width: 100%;
+    border-radius: 0;
+}
+
+/* Ở bên phải (ô cuối của block) */
+.day-number.range-end {
+    width: 100%;
+    border-radius: 0;
+    border-top-right-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md);
+}
+
+.comment-wrapper {
+    border-radius: var(--radius-md);
+    background-color: var(--background-color);
+    padding: 9px 9px 11px 11px;
+    margin-top: 6px;
+}
+
+.hours-request-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hours-request-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.hours-request-container .form-group {
+    position: relative;
+}
+
+.hours-request-container .form-group .icon-time {
+    position: absolute;
+    bottom: 13.5px;
+    right: 18px;
+}
+
+.hours-request-container .form-control {
+    padding: 12px 18px;
+    width: 100%;
+    appearance: none;
+    font-size: 14px;
+    font-weight: regular;
+    line-height: 24px;
+    color: #7D8592 !important;
+}
+
+.hours-request-container .form-control option {
+    font-size: 14px;
+    font-weight: regular;
+    line-height: 24px;
+}
+
+.hour-result-request {
+    padding: 11px 30px 15px 30px;
+    background-color: var(--background-color);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hour-result-request h5 {
+    font-weight: bold;
+    line-height: 24px;
+    font-size: 16px;
+}
+
+.hour-result-request h4 {
+    color: #15C0E6;
+    font-weight: bold;
+    line-height: 44px;
+    font-size: 30px;
+}
+
+@media (max-width: 768px) {
+    #main-layout-profile .main-container .main-navigation-bar .project-team-vacation-wrapper li {
+        width: 110px;
+        height: 30px;
+        border-radius: 14px;
+    }
+
+    #main-layout-profile .main-container .main-navigation-bar .project-team-vacation-wrapper li a {
+        font-size: 14px;
+    }
+
+    #main-layout-profile .main-container .main-navigation-bar .project-team-vacation-wrapper li.active {
+        background-color: var(--primary-color);
+    }
+
+    #main-layout-profile .main-container .main-navigation-bar .project-team-vacation-wrapper li.active a {
+        font-size: 14px;
+    }
+
+    #main-layout-profile .main-container .main-navigation-bar {
+        height: 100%;
+        flex-direction: column;
+        gap: 24px;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

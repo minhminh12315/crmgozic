@@ -24,8 +24,8 @@
     --danger-color: #F65160;
     --hover-color: #3A81EB;
     --active-color: #1F6DE0;
-    --success-badge-color: #00D097;
-    --success-bg-badge: #E0F9F2;
+    --success-badge-color: #E0F9F2;
+    --success-bg-badge: #00D097;
     --warning-bg-badge: #FDC748;
     --border-color: #D8E0F0;
     --bs-btn-close-icon: url("data:image/svg+xml,%3csvg%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M20.1064%2018.6958C20.5835%2018.2443%2020.5826%2017.4845%2020.1046%2017.034L14.232%2011.5L20.1046%205.96597C20.5826%205.51549%2020.5835%204.75571%2020.1064%204.30419L20.041%204.24227C19.601%203.82583%2018.9125%203.82508%2018.4716%204.24056L12.5%209.86786L6.52845%204.24056C6.08755%203.82508%205.39905%203.82583%204.95906%204.24227L4.89363%204.30419C4.41658%204.75571%204.4174%205.51549%204.89544%205.96597L10.768%2011.5L4.89544%2017.034C4.4174%2017.4845%204.41658%2018.2443%204.89364%2018.6958L4.95906%2018.7577C5.39905%2019.1742%206.08756%2019.1749%206.52845%2018.7594L12.5%2013.1321L18.4716%2018.7594C18.9125%2019.1749%2019.601%2019.1742%2020.041%2018.7577L20.1064%2018.6958Z'%20fill='%230A1629'/%3e%3c/svg%3e");
@@ -122,6 +122,7 @@ textarea {
     padding: 12px 18px;
     background-color: var(--primary-color);
     color: var(--text-color-secondary);
+    font-weight: var(--font-weight-bold);
     border: none;
 }
 
@@ -141,43 +142,43 @@ textarea {
 
 .badge {
     padding: 7px 14px;
-    border-radius: var(--radius-md);
+    border-radius: 10px;
 }
 
-.badge .text-bg-disable {
+.badge.text-bg-disable {
     color: var(--text-color-disabled);
     background-color: rgba(125, 133, 146, 0.14);
 }
 
-.badge .text-bg-primary {
+.badge.text-bg-primary {
     color: var(--primary-color);
     background-color: rgba(63, 82, 255, 0.12);
 }
 
-.badge .text-bg-violet {
+.badge.text-bg-violet {
     color: var(--violet-color);
     background-color: rgba(196, 24, 230, 0.11);
 }
 
-.badge .text-bg-success {
+.badge.text-bg-success {
     color: var(--success-bg-badge);
     background-color: var(--success-bg-badge);
 }
 
-.badge .badge-success {
+.badge.badge-success {
     background-color: var(--success-bg-badge);
     color: var(--text-color-secondary);
 }
 
-.badge .badge-success {
+.badge.badge-warning {
     background-color: var(--warning-bg-badge);
     color: var(--text-color-secondary);
 }
 
-.badge .badge-success {
+.badge.badge-disable {
     color: var(--text-color-disabled);
     background-color: transparent;
-    border: 1px solid var(--text-color-disabled);dá
+    border: 1px solid var(--text-color-disabled);
 }
 
 .btn-close-custom {
@@ -226,4 +227,76 @@ textarea {
     width: 100vw;
     height: 100vh;
     background-color: rgb(33, 85, 163, 16);
+}
+
+.radio-custom-wrapper {
+    border: 2px solid var(--text-color-primary);
+    border-radius: 50%;
+    padding: 3px;
+    width: 20px;
+    height: 20px;
+}
+
+.custom-radio {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.custom-radio input[type="radio"] {
+    display: none;
+}
+
+.radio-style {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--text-color-primary);
+    /* viền mặc định */
+    border-radius: 50%;
+    position: relative;
+}
+
+.radio-style::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary-color);
+    /* màu chấm */
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 0.2s ease;
+}
+
+.custom-radio input[type="radio"]:checked+.radio-style::after {
+    transform: translate(-50%, -50%) scale(1);
+    /* hiện chấm khi selected */
+}
+
+/* Định dạng toàn bộ thanh cuộn */
+::-webkit-scrollbar {
+    width: 8px;
+    /* Chiều rộng của thanh cuộn dọc */
+}
+
+/* Định dạng "track" - phần nền của thanh cuộn */
+::-webkit-scrollbar-track {
+    background: #EBF0FA;
+}
+
+/* Định dạng "thumb" - phần di chuyển của thanh cuộn */
+::-webkit-scrollbar-thumb {
+    background: #D3DBEB;
+    border-radius: var(--radius-md);
+    /* Bo tròn các góc */
+    /* Thêm viền để tạo khoảng cách */
+}
+
+/* Hiệu ứng khi hover vào thanh cuộn */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

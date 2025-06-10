@@ -11,7 +11,7 @@
         </a>
     </div>
     <div class="main-profile-wrapper">
-        <div class="profile-info-container">
+        <div class="profile-info-container d-none d-lg-block">
             <div class="prf-inf-header">
                 <div class="avatar-container">
                     <!-- avatar -->
@@ -114,11 +114,12 @@
                                 fill="#0A1629" />
                         </svg>
                     </button>
-                    <select name="" id="" class="project-select-filter form-select">
+                    <select name="" id="" class="project-select-filter form-select ">
                         <option value="">Current Projects</option>
                     </select>
                 </div>
-                <button class="btn-add-request-vacation" *ngIf="activeNav === 'vacations'">
+                <button data-bs-toggle="modal" data-bs-target="#vacationRequest" class="btn-add-request-vacation"
+                    *ngIf="activeNav === 'vacations'">
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                             d="M7.99327 0.883379C7.93551 0.38604 7.51284 0 7 0C6.44772 0 6 0.447715 6 1V6H1L0.883379 6.00673C0.38604 6.06449 0 6.48716 0 7C0 7.55228 0.447715 8 1 8H6V13L6.00673 13.1166C6.06449 13.614 6.48716 14 7 14C7.55228 14 8 13.5523 8 13V8H13L13.1166 7.99327C13.614 7.93551 14 7.51284 14 7C14 6.44772 13.5523 6 13 6H8V1L7.99327 0.883379Z"
@@ -126,6 +127,159 @@
                     </svg>
                     <span>Add Request</span>
                 </button>
+                <div class="modal fade" id="vacationRequest" tabindex="-1" aria-labelledby="vacationRequestLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered ">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title" id="vacationRequestLabel">Add Request</h1>
+                                <button type="button" class="btn-close-custom" data-bs-dismiss="modal"
+                                    aria-label="Close">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M20.1064 18.6958C20.5835 18.2443 20.5826 17.4845 20.1046 17.034L14.232 11.5L20.1046 5.96597C20.5826 5.51549 20.5835 4.75571 20.1064 4.30419L20.041 4.24227C19.601 3.82583 18.9125 3.82508 18.4716 4.24056L12.5 9.86786L6.52845 4.24056C6.08755 3.82508 5.39905 3.82583 4.95906 4.24227L4.89363 4.30419C4.41658 4.75571 4.4174 5.51549 4.89544 5.96597L10.768 11.5L4.89544 17.034C4.4174 17.4845 4.41658 18.2443 4.89364 18.6958L4.95906 18.7577C5.39905 19.1742 6.08756 19.1749 6.52845 18.7594L12.5 13.1321L18.4716 18.7594C18.9125 19.1749 19.601 19.1742 20.041 18.7577L20.1064 18.6958Z"
+                                            fill="#0A1629" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-request-vacation-container w-100">
+                                    <!-- reqeust type -->
+                                    <div class="request-type-container">
+                                        <h5 class="title">Request Type</h5>
+                                        <div class="list-request-type">
+                                            <label class="custom-radio">
+                                                <input value="vacation" type="radio" name="option" />
+                                                <span class="radio-style"></span>
+                                                Vacation
+                                            </label>
+                                            <label class="custom-radio">
+                                                <input value="sick leave" type="radio" name="option" />
+                                                <span class="radio-style"></span>
+                                                Sick Leave
+                                            </label>
+                                            <label class="custom-radio">
+                                                <input value="work remotely" type="radio" name="option" />
+                                                <span class="radio-style"></span>
+                                                Work remotely
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <!-- day hours -->
+                                    <ul class="days-hours-container">
+                                        <li [class.active]="activeAddRequest === 'days'"
+                                            (click)="setActiveRequest('days')">
+                                            <a>Days</a>
+                                        </li>
+                                        <li [class.active]="activeAddRequest === 'hours'"
+                                            (click)="setActiveRequest('hours')">
+                                            <a>Hours</a>
+                                        </li>
+                                    </ul>
+                                    <!-- calendar container-->
+                                    <div class="request-calendar">
+                                        <div class="calendar-navigation">
+                                            <button type="button" (click)="previousMonth()">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M4.2097 11.3871L4.29289 11.2929L9.29289 6.29289C9.68342 5.90237 10.3166 5.90237 10.7071 6.29289C11.0676 6.65338 11.0953 7.22061 10.7903 7.6129L10.7071 7.70711L7.415 11H19C19.5523 11 20 11.4477 20 12C20 12.5128 19.614 12.9355 19.1166 12.9933L19 13H7.415L10.7071 16.2929C11.0676 16.6534 11.0953 17.2206 10.7903 17.6129L10.7071 17.7071C10.3466 18.0676 9.77939 18.0953 9.3871 17.7903L9.29289 17.7071L4.29289 12.7071C3.93241 12.3466 3.90468 11.7794 4.2097 11.3871Z"
+                                                        fill="#3F8CFF" />
+                                                </svg>
+                                            </button>
+                                            <h2>{{ currentMonth }}, {{ currentYear }}</h2>
+                                            <button type="button" (click)="nextMonth()">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M19.7903 11.3871L19.7071 11.2929L14.7071 6.29289C14.3166 5.90237 13.6834 5.90237 13.2929 6.29289C12.9324 6.65338 12.9047 7.22061 13.2097 7.6129L13.2929 7.70711L16.585 11H5C4.44772 11 4 11.4477 4 12C4 12.5128 4.38604 12.9355 4.88338 12.9933L5 13H16.585L13.2929 16.2929C12.9324 16.6534 12.9047 17.2206 13.2097 17.6129L13.2929 17.7071C13.6534 18.0676 14.2206 18.0953 14.6129 17.7903L14.7071 17.7071L19.7071 12.7071C20.0676 12.3466 20.0953 11.7794 19.7903 11.3871Z"
+                                                        fill="#3F8CFF" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="w-100">
+                                            <div class="weekdays-header">
+                                                <div class="weekday">Mon</div>
+                                                <div class="weekday">Tue</div>
+                                                <div class="weekday">Wed</div>
+                                                <div class="weekday">Thu</div>
+                                                <div class="weekday">Fri</div>
+                                                <div class="weekday">Sat</div>
+                                                <div class="weekday">Sun</div>
+                                            </div>
+                                            <!-- calendar -->
+                                            <div class="days-grid">
+                                                <div *ngFor="let day of workDays; let i = index" class="day-cell"
+                                                    [class.other-month]="!day.isCurrentMonth"
+                                                    [ngClass]="{'selected-range': selectedRange.start && selectedRange.end}">
+                                                    <button type="button" class="day-number" (click)="selectDay(day)"
+                                                        [ngClass]="getRangeClasses(day, i)">
+                                                        {{ day.date }}
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div *ngIf="activeAddRequest === 'hours'"
+                                        class="d-flex flex-column align-items-center justify-content-center gap-4 w-100"
+                                        style="margin-bottom:12px;">
+                                        <div class="hours-request-container w-100">
+                                            <div class="form-group w-100">
+                                                <label for="fromHours">From</label>
+                                                <span class="icon-time">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4ZM12.9933 6.88338C12.9355 6.38604 12.5128 6 12 6C11.4477 6 11 6.44772 11 7V12.25L11.0086 12.3808C11.0539 12.7247 11.2756 13.0246 11.5992 13.1662L15.5992 14.9162L15.7087 14.9567C16.1875 15.1032 16.7106 14.8707 16.9162 14.4008L16.9567 14.2913C17.1032 13.8125 16.8707 13.2894 16.4008 13.0838L13 11.596V7L12.9933 6.88338Z"
+                                                            fill="#7D8592" />
+                                                    </svg>
+                                                </span>
+                                                <select class="form-control" name="" id="fromHours">
+                                                    <option class="d-none" checked>From</option>
+                                                    <option *ngFor="let time of timeOptions" [value]="time">{{ time }}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group w-100">
+                                                <label for="toHours">To</label>
+                                                <span class="icon-time">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4ZM12.9933 6.88338C12.9355 6.38604 12.5128 6 12 6C11.4477 6 11 6.44772 11 7V12.25L11.0086 12.3808C11.0539 12.7247 11.2756 13.0246 11.5992 13.1662L15.5992 14.9162L15.7087 14.9567C16.1875 15.1032 16.7106 14.8707 16.9162 14.4008L16.9567 14.2913C17.1032 13.8125 16.8707 13.2894 16.4008 13.0838L13 11.596V7L12.9933 6.88338Z"
+                                                            fill="#7D8592" />
+                                                    </svg>
+                                                </span>
+                                                <select class="form-control" name="" id="toHours">
+                                                    <option class="d-none" checked>To</option>
+                                                    <option *ngFor="let time of timeOptions" [value]="time">{{ time }}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="hour-result-request w-100">
+                                            <h5>Time for Vacation</h5>
+                                            <h4>4h 0m</h4>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row justify-content-between align-items-center">
+                                        <div class="comment-wrapper">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M11.5 2.99979H12L12.3221 3.01977C17.0213 3.41067 20.7372 7.21045 21.0001 11.9999L21.0001 12.4974C21.0038 13.9748 20.6586 15.4322 19.9945 16.747C18.3862 19.9651 15.098 21.9985 11.5026 21.9999C10.2715 22.0031 9.0542 21.764 7.91951 21.2987L7.65 21.1819L6.07545 21.7556C4.57418 22.3022 2.91973 21.5754 2.29523 20.1269L2.23014 19.963C1.98569 19.2915 1.98891 18.5549 2.23923 17.8857L2.815 16.3439L2.70123 16.0804C2.28249 15.0592 2.04689 13.9714 2.00629 12.8679L2 12.4995C2.00139 8.90193 4.03487 5.61376 7.24915 4.00733C8.56776 3.34129 10.0251 2.99609 11.5 2.99979ZM11.9567 4.99893L11.4975 4.99978C10.335 4.99687 9.18834 5.26848 8.14706 5.79443C5.60648 7.06417 4.0011 9.6601 4 12.5025C3.99697 13.6649 4.26854 14.8115 4.7926 15.8491C4.91847 16.0983 4.93444 16.3888 4.83663 16.6502L4.11249 18.5863C4.02905 18.8094 4.02797 19.0549 4.10946 19.2787C4.2984 19.7977 4.87227 20.0652 5.39123 19.8763L7.35789 19.1603C7.61737 19.0658 7.90437 19.0828 8.15085 19.2073C9.18838 19.7314 10.335 20.003 11.4996 19.9999C14.3398 19.9988 16.9358 18.3934 18.2074 15.8491C18.7314 14.8116 19.003 13.6649 19.0001 12.4999L19.0017 12.055C18.7917 8.25208 15.7581 5.21469 11.9567 4.99893ZM11.9567 4.99893L11.958 4.99892L11.9449 4.99827L11.9567 4.99893ZM7 11C7 10.4477 7.44772 9.99998 8 9.99998H15C15.5523 9.99998 16 10.4477 16 11C16 11.5523 15.5523 12 15 12H8C7.44772 12 7 11.5523 7 11ZM10 14C9.44772 14 9 14.4477 9 15C9 15.5523 9.44772 16 10 16H13C13.5523 16 14 15.5523 14 15C14 14.4477 13.5523 14 13 14H10Z"
+                                                    fill="#0A1629" />
+                                            </svg>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary mt-1">Send Request</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <main class="w-100">
                 <router-outlet />

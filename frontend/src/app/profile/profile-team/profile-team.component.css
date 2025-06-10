@@ -14,12 +14,14 @@
 }
 
 .employee-card .name-department .name {
+    text-align: center;
     font-size: 16px;
     font-weight: var(--font-weight-bold);
     color: var(--text-color-primary);
 }
 
 .employee-card .name-department .department {
+    text-align: center;
     font-size: 14px;
     font-weight: var(--font-weight-regular);
     color: var(--text-color-primary);

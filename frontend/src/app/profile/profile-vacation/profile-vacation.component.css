@@ -1,0 +1,241 @@
+#profile-vacation-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 47px;
+    justify-content: start;
+    align-items: start;
+}
+
+#profile-vacation-container .list-vacation-information {
+    width: 100%;
+    /* display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: start;
+    gap: 30px; */
+
+}
+
+#profile-vacation-container .list-vacation-information .vacation-days,
+#profile-vacation-container .list-vacation-information .vacation-sick-leave,
+#profile-vacation-container .list-vacation-information .vacation-work-remotely {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 30px;
+    background-color: var(--background-white);
+    border-radius: var(--radius-lg);
+    padding: 26px 26px 28px 26px;
+}
+
+#profile-vacation-container .list-vacation-information .vacation-days svg .circle-label,
+#profile-vacation-container .list-vacation-information .vacation-sick-leave svg .circle-label,
+#profile-vacation-container .list-vacation-information .vacation-work-remotely svg .circle-label {
+    font-size: 24px;
+    line-height: 26px;
+    font-weight: bold;
+}
+
+#profile-vacation-container .list-vacation-information .vacation-days .days-available,
+#profile-vacation-container .list-vacation-information .vacation-sick-leave .days-available,
+#profile-vacation-container .list-vacation-information .vacation-work-remotely .days-available {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+#profile-vacation-container .list-vacation-information .vacation-days .days-available .title,
+#profile-vacation-container .list-vacation-information .vacation-sick-leave .days-available .title,
+#profile-vacation-container .list-vacation-information .vacation-work-remotely .days-available .title {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 26px;
+}
+
+#profile-vacation-container .list-vacation-information .vacation-days .days-available .available-remaining-day,
+#profile-vacation-container .list-vacation-information .vacation-sick-leave .days-available .available-remaining-day,
+#profile-vacation-container .list-vacation-information .vacation-work-remotely .days-available .available-remaining-day {
+    font-size: 14px;
+    font-weight: regular;
+    color: #91929E;
+}
+
+#profile-vacation-container .vacation-request-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: start;
+}
+
+#profile-vacation-container .vacation-request-container .title {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#profile-vacation-container .list-vacation-request {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: start;
+}
+
+#profile-vacation-container .list-vacation-request .request {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 39px 22px 31px;
+    background-color: var(--background-white);
+    border-radius: var(--radius-lg);
+}
+
+#profile-vacation-container .list-vacation-request .request .request-start-day-container {
+    margin-left: 88px;
+}
+
+#profile-vacation-container .list-vacation-request .request .request-end-day-container {
+    margin-left: 91px;
+}
+
+#profile-vacation-container .list-vacation-request .request .badge {
+    margin-left: 98px;
+}
+
+#profile-vacation-container .list-vacation-request .request .request-type-container>span,
+#profile-vacation-container .list-vacation-request .request .request-duration-container span,
+#profile-vacation-container .list-vacation-request .request .request-start-day-container span,
+#profile-vacation-container .list-vacation-request .request .request-end-day-container span {
+    font-size: 14px;
+    font-weight: regular;
+    color: #91929E;
+}
+
+#profile-vacation-container .list-vacation-request .request .request-duration-container h5,
+#profile-vacation-container .list-vacation-request .request .request-start-day-container h5,
+#profile-vacation-container .list-vacation-request .request .request-end-day-container h5 {
+    font-size: 16px;
+    font-weight: regular;
+    line-height: 24px;
+}
+
+#profile-vacation-container .list-vacation-request .request .request-type-container .request-type-wrapper .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+#profile-vacation-container .list-vacation-request .request .request-type-container .request-type-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 11px;
+}
+
+#profile-vacation-container .list-vacation-request .request .request-type-container .request-type-wrapper .request-type {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 24px;
+}
+
+#profile-vacation-container .list-vacation-request .request .request-type-container .request-type-wrapper .dot.sick-leave {
+    background-color: var(--danger-color);
+}
+
+#profile-vacation-container .list-vacation-request .request .request-type-container .request-type-wrapper .dot.work-remotely {
+    background-color: var(--violet-color);
+}
+
+#profile-vacation-container .list-vacation-request .request .request-type-container .request-type-wrapper .dot.vacation {
+    background-color: #15C0E6;
+}
+
+@media (max-width: 768px) {
+    #profile-vacation-container .list-vacation-request .request {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 18px 24px;
+        background-color: var(--background-white);
+        border-radius: var(--radius-lg);
+    }
+    #profile-vacation-container .list-vacation-request .request  .flex-responsive{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    #profile-vacation-container .list-vacation-request .request .request-start-day-container {
+        margin-left: 0px;
+    }
+
+    #profile-vacation-container .list-vacation-request .request .request-end-day-container {
+        margin-left: 0px;
+    }
+
+    #profile-vacation-container .list-vacation-request .request .badge {
+        margin-left: 0px;
+    }
+
+    #profile-vacation-container .list-vacation-request .request .request-type-container>span,
+    #profile-vacation-container .list-vacation-request .request .request-duration-container span,
+    #profile-vacation-container .list-vacation-request .request .request-start-day-container span,
+    #profile-vacation-container .list-vacation-request .request .request-end-day-container span {
+        font-size: 14px;
+        font-weight: regular;
+        color: #91929E;
+    }
+
+    #profile-vacation-container .list-vacation-request .request .request-duration-container h5,
+    #profile-vacation-container .list-vacation-request .request .request-start-day-container h5,
+    #profile-vacation-container .list-vacation-request .request .request-end-day-container h5 {
+        font-size: 14px;
+        font-weight: regular;
+        line-height: 24px;
+    }
+
+    #profile-vacation-container .list-vacation-request .request .request-type-container .request-type-wrapper .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+    }
+
+    #profile-vacation-container .list-vacation-request .request .request-type-container .request-type-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        gap: 11px;
+    }
+
+    #profile-vacation-container .list-vacation-request .request .request-type-container .request-type-wrapper .request-type {
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 24px;
+    }
+
+    #profile-vacation-container .list-vacation-request .request .request-type-container .request-type-wrapper .dot.sick-leave {
+        background-color: var(--danger-color);
+    }
+
+    #profile-vacation-container .list-vacation-request .request .request-type-container .request-type-wrapper .dot.work-remotely {
+        background-color: var(--violet-color);
+    }
+
+    #profile-vacation-container .list-vacation-request .request .request-type-container .request-type-wrapper .dot.vacation {
+        background-color: #15C0E6;
+    }
+    .badge{
+        padding: 5px 10px;
+    }
+}
