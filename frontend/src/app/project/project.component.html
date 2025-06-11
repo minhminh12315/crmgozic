@@ -1,7 +1,839 @@
-<div class="project-container">
-    <div class="project-header">
-        <h1>Project</h1>
-        <!-- <button class="add-project-btn" (click)="openAddProjectModal()">+ Add Project</button> -->
+<div class="project-container" id="main-project-container">
+  <div class="project-header">
+    <h1>Project</h1>
+    <button class="add-project-btn" (click)="openAddProjectModal()">
+      + Add Project
+    </button>
+  </div>
+
+  <div class="main-project-wrapper">
+    <div class="project-current-container">
+      <div class="prf-inf-header">
+        <h6>Current Project</h6>
+      </div>
+      <div class="sidebar-container">
+        <ul class="project-list">
+          <li class="project-item active">
+            <small class="project-code">PN0001245</small>
+            <div class="project-name">Medical App (iOS native)</div>
+            <a href="" class="view-details">
+              View details
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M9.29289 7.29289C9.65338 6.93241 10.2206 6.90468 10.6129 7.2097L10.7071 7.29289L14.7071 11.2929C15.0676 11.6534 15.0953 12.2206 14.7903 12.6129L14.7071 12.7071L10.7071 16.7071C10.3166 17.0976 9.68342 17.0976 9.29289 16.7071C8.93241 16.3466 8.90468 15.7794 9.2097 15.3871L9.29289 15.2929L12.585 12L9.29289 8.70711C8.93241 8.34662 8.90468 7.77939 9.2097 7.3871L9.29289 7.29289Z"
+                  fill="#3F8CFF"
+                />
+              </svg>
+            </a>
+          </li>
+
+          <li class="project-item">
+            <small class="project-code">PN0001245</small>
+            <div class="project-name">Medical App (iOS native)</div>
+            <a href="" class="view-details">
+              View details
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M9.29289 7.29289C9.65338 6.93241 10.2206 6.90468 10.6129 7.2097L10.7071 7.29289L14.7071 11.2929C15.0676 11.6534 15.0953 12.2206 14.7903 12.6129L14.7071 12.7071L10.7071 16.7071C10.3166 17.0976 9.68342 17.0976 9.29289 16.7071C8.93241 16.3466 8.90468 15.7794 9.2097 15.3871L9.29289 15.2929L12.585 12L9.29289 8.70711C8.93241 8.34662 8.90468 7.77939 9.2097 7.3871L9.29289 7.29289Z"
+                  fill="#3F8CFF"
+                />
+              </svg>
+            </a>
+          </li>
+
+          <li class="project-item">
+            <small class="project-code">PN0001245</small>
+            <div class="project-name">Medical App (iOS native)</div>
+            <a href="" class="view-details">
+              View details
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M9.29289 7.29289C9.65338 6.93241 10.2206 6.90468 10.6129 7.2097L10.7071 7.29289L14.7071 11.2929C15.0676 11.6534 15.0953 12.2206 14.7903 12.6129L14.7071 12.7071L10.7071 16.7071C10.3166 17.0976 9.68342 17.0976 9.29289 16.7071C8.93241 16.3466 8.90468 15.7794 9.2097 15.3871L9.29289 15.2929L12.585 12L9.29289 8.70711C8.93241 8.34662 8.90468 7.77939 9.2097 7.3871L9.29289 7.29289Z"
+                  fill="#3F8CFF"
+                />
+              </svg>
+            </a>
+          </li>
+
+          <li class="project-item">
+            <small class="project-code">PN0001245</small>
+            <div class="project-name">Medical App (iOS native)</div>
+            <a href="" class="view-details">
+              View details
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M9.29289 7.29289C9.65338 6.93241 10.2206 6.90468 10.6129 7.2097L10.7071 7.29289L14.7071 11.2929C15.0676 11.6534 15.0953 12.2206 14.7903 12.6129L14.7071 12.7071L10.7071 16.7071C10.3166 17.0976 9.68342 17.0976 9.29289 16.7071C8.93241 16.3466 8.90468 15.7794 9.2097 15.3871L9.29289 15.2929L12.585 12L9.29289 8.70711C8.93241 8.34662 8.90468 7.77939 9.2097 7.3871L9.29289 7.29289Z"
+                  fill="#3F8CFF"
+                />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-container w-100">
+      <div class="task-header">
+        <h5>Tasks</h5>
+        <div class="triple-icon">
+          <ul class="">
+            <li class="active">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M21 5C21.5523 5 22 5.44772 22 6C22 6.51284 21.614 6.93551 21.1166 6.99327L21 7H3C2.44772 7 2 6.55228 2 6C2 5.48716 2.38604 5.06449 2.88338 5.00673L3 5H21ZM21 11C21.5523 11 22 11.4477 22 12C22 12.5128 21.614 12.9355 21.1166 12.9933L21 13H3C2.44772 13 2 12.5523 2 12C2 11.4872 2.38604 11.0645 2.88338 11.0067L3 11H21ZM22 18C22 17.4477 21.5523 17 21 17H3L2.88338 17.0067C2.38604 17.0645 2 17.4872 2 18C2 18.5523 2.44772 19 3 19H21L21.1166 18.9933C21.614 18.9355 22 18.5128 22 18Z"
+                  fill="#3F8CFF"
+                />
+              </svg>
+            </li>
+            <li>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M21 2C21.5523 2 22 2.44772 22 3C22 3.51284 21.614 3.93551 21.1166 3.99327L21 4H3C2.44772 4 2 3.55228 2 3C2 2.48716 2.38604 2.06449 2.88338 2.00673L3 2H21ZM20 7.76923V14.2308C20 15.7602 18.6569 17 17 17H16C14.3431 17 13 15.7602 13 14.2308V7.76923C13 6.23983 14.3431 5 16 5H17C18.6569 5 20 6.23983 20 7.76923ZM18 14.1111V7.88889C18 7.39797 17.5523 7 17 7H16C15.4477 7 15 7.39797 15 7.88889V14.1111C15 14.602 15.4477 15 16 15H17C17.5523 15 18 14.602 18 14.1111ZM8 5H7C5.34315 5 4 6.42709 4 8.1875V18.8125C4 20.5729 5.34315 22 7 22H8C9.65685 22 11 20.5729 11 18.8125V8.1875C11 6.42709 9.65685 5 8 5ZM7 7H8C8.55228 7 9 7.48502 9 8.08333V18.9167C9 19.515 8.55228 20 8 20H7C6.44772 20 6 19.515 6 18.9167V8.08333C6 7.48502 6.44772 7 7 7Z"
+                  fill="#0A1629"
+                />
+              </svg>
+            </li>
+            <li>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M12 2C12.5128 2 12.9355 2.38604 12.9933 2.88338L13 3V4H15C16.6569 4 18 5.34315 18 7V8C18 9.65685 16.6569 11 15 11H13V13H19C20.6569 13 22 14.3431 22 16V17C22 18.6569 20.6569 20 19 20H13V21C13 21.5523 12.5523 22 12 22C11.4872 22 11.0645 21.614 11.0067 21.1166L11 21V20H10C8.34315 20 7 18.6569 7 17V16C7 14.3431 8.34315 13 10 13H11V11H5C3.34315 11 2 9.65685 2 8V7C2 5.34315 3.34315 4 5 4H11V3C11 2.44772 11.4477 2 12 2ZM12 18H19C19.5523 18 20 17.5523 20 17V16C20 15.4477 19.5523 15 19 15H10C9.44772 15 9 15.4477 9 16V17C9 17.5523 9.44772 18 10 18H12ZM15 9H12H5C4.44772 9 4 8.55228 4 8V7C4 6.44772 4.44772 6 5 6H12H15C15.5523 6 16 6.44772 16 7V8C16 8.55228 15.5523 9 15 9Z"
+                  fill="#0A1629"
+                />
+              </svg>
+            </li>
+          </ul>
+        </div>
+        <div class="filter">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M6 2H17.0926C17.8274 2 18.5366 2.26964 19.0857 2.75777C20.3241 3.85853 20.4356 5.75474 19.3349 6.99309L14.5463 12.379V18.7639C14.5463 19.0598 14.4912 19.3523 14.3845 19.6269L14.2948 19.8292C13.7065 21.0058 12.2757 21.4827 11.0991 20.8944L10.2047 20.4472C9.18832 19.939 8.54631 18.9002 8.54631 17.7639V12.381L3.75777 6.99309C3.31845 6.49885 3.05611 5.87498 3.00804 5.21952L3 5C3 3.34315 4.34315 2 6 2ZM17.0926 4H6C5.44772 4 5 4.44772 5 5C5 5.24491 5.08988 5.48131 5.25259 5.66436L10.2937 11.3356C10.4564 11.5187 10.5463 11.7551 10.5463 12V17.7639C10.5463 18.1427 10.7603 18.489 11.0991 18.6584L11.9935 19.1056C12.1822 19.1999 12.4116 19.1234 12.506 18.9348C12.5325 18.8817 12.5463 18.8232 12.5463 18.7639V12C12.5463 11.7551 12.6362 11.5187 12.7989 11.3356L17.84 5.66436C18.207 5.25158 18.1698 4.61951 17.757 4.25259C17.5739 4.08988 17.3375 4 17.0926 4Z"
+              fill="#0A1629"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <div class="active-tasks">Active Tasks</div>
+
+      <div class="task-list">
+        <ul>
+          <li class="task-item">
+            <div class="task-name flex-col">
+              <div class="task-name-text">Task Name</div>
+              <div class="task-name-subtext">Research</div>
+            </div>
+            <div class="estimate flex-col">
+              <div class="task-name-text">Estimate</div>
+              <div class="task-name-subtext">2d 4h</div>
+            </div>
+            <div class="spend-time flex-col">
+              <div class="task-name-text">Spend Time</div>
+              <div class="task-name-subtext">1d 2h</div>
+            </div>
+            <div class="assignee flex-col">
+              <div class="task-name-text">Assignee</div>
+              <div class="task-name-subtext">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <circle
+                    cx="14"
+                    cy="14"
+                    r="13"
+                    fill="url(#pattern0_0_3182)"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                  <defs>
+                    <pattern
+                      id="pattern0_0_3182"
+                      patternContentUnits="objectBoundingBox"
+                      width="1"
+                      height="1"
+                    >
+                      <use
+                        xlink:href="#image0_0_3182"
+                        transform="scale(0.00390625)"
+                      />
+                    </pattern>
+                    <image
+                      id="image0_0_3182"
+                      width="256"
+                      height="256"
+                      preserveAspectRatio="none"
+                    />
+                  </defs>
+                </svg>
+              </div>
+            </div>
+            <div class="priority flex-col">
+              <div class="task-name-text">Priority</div>
+              <div class="priority-subtext">
+                <span>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12.6129 4.2097L12.7071 4.29289L17.7071 9.29289C18.0976 9.68342 18.0976 10.3166 17.7071 10.7071C17.3466 11.0676 16.7794 11.0953 16.3871 10.7903L16.2929 10.7071L13 7.415V19C13 19.5523 12.5523 20 12 20C11.4872 20 11.0645 19.614 11.0067 19.1166L11 19V7.415L7.70711 10.7071C7.34662 11.0676 6.77939 11.0953 6.3871 10.7903L6.29289 10.7071C5.93241 10.3466 5.90468 9.77939 6.2097 9.3871L6.29289 9.29289L11.2929 4.29289C11.6534 3.93241 12.2206 3.90468 12.6129 4.2097Z"
+                      fill="#FFBD21"
+                    />
+                  </svg>
+                </span>
+                <span>Medium</span>
+              </div>
+            </div>
+            <div class="task-status">
+              <div class="done">Done</div>
+            </div>
+            <div class="task-circle flex-col">
+              <svg
+                width="26"
+                height="26"
+                viewBox="0 0 26 26"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="13"
+                  cy="13"
+                  r="12"
+                  stroke="#3F8CFF"
+                  stroke-width="2"
+                />
+              </svg>
+            </div>
+          </li>
+          <li class="task-item">
+            <div class="task-name flex-col">
+              <div class="task-name-text">Task Name</div>
+              <div class="task-name-subtext">Research</div>
+            </div>
+            <div class="estimate flex-col">
+              <div class="task-name-text">Estimate</div>
+              <div class="task-name-subtext">2d 4h</div>
+            </div>
+            <div class="spend-time flex-col">
+              <div class="task-name-text">Spend Time</div>
+              <div class="task-name-subtext">1d 2h</div>
+            </div>
+            <div class="assignee flex-col">
+              <div class="task-name-text">Assignee</div>
+              <div class="task-name-subtext">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <circle
+                    cx="14"
+                    cy="14"
+                    r="13"
+                    fill="url(#pattern0_0_3182)"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                  <defs>
+                    <pattern
+                      id="pattern0_0_3182"
+                      patternContentUnits="objectBoundingBox"
+                      width="1"
+                      height="1"
+                    >
+                      <use
+                        xlink:href="#image0_0_3182"
+                        transform="scale(0.00390625)"
+                      />
+                    </pattern>
+                    <image
+                      id="image0_0_3182"
+                      width="256"
+                      height="256"
+                      preserveAspectRatio="none"
+                    />
+                  </defs>
+                </svg>
+              </div>
+            </div>
+            <div class="priority flex-col">
+              <div class="task-name-text">Priority</div>
+              <div class="priority-subtext">
+                <span>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12.6129 4.2097L12.7071 4.29289L17.7071 9.29289C18.0976 9.68342 18.0976 10.3166 17.7071 10.7071C17.3466 11.0676 16.7794 11.0953 16.3871 10.7903L16.2929 10.7071L13 7.415V19C13 19.5523 12.5523 20 12 20C11.4872 20 11.0645 19.614 11.0067 19.1166L11 19V7.415L7.70711 10.7071C7.34662 11.0676 6.77939 11.0953 6.3871 10.7903L6.29289 10.7071C5.93241 10.3466 5.90468 9.77939 6.2097 9.3871L6.29289 9.29289L11.2929 4.29289C11.6534 3.93241 12.2206 3.90468 12.6129 4.2097Z"
+                      fill="#FFBD21"
+                    />
+                  </svg>
+                </span>
+                <span>Medium</span>
+              </div>
+            </div>
+            <div class="task-status">
+              <div class="done">Done</div>
+            </div>
+            <div class="task-circle flex-col">
+              <svg
+                width="26"
+                height="26"
+                viewBox="0 0 26 26"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="13"
+                  cy="13"
+                  r="12"
+                  stroke="#3F8CFF"
+                  stroke-width="2"
+                />
+              </svg>
+            </div>
+          </li>
+
+          <li class="task-item">
+            <div class="task-name flex-col">
+              <div class="task-name-text">Task Name</div>
+              <div class="task-name-subtext">Research</div>
+            </div>
+            <div class="estimate flex-col">
+              <div class="task-name-text">Estimate</div>
+              <div class="task-name-subtext">2d 4h</div>
+            </div>
+            <div class="spend-time flex-col">
+              <div class="task-name-text">Spend Time</div>
+              <div class="task-name-subtext">1d 2h</div>
+            </div>
+            <div class="assignee flex-col">
+              <div class="task-name-text">Assignee</div>
+              <div class="task-name-subtext"></div>
+            </div>
+            <div class="priority flex-col">
+              <div class="task-name-text">Priority</div>
+              <div class="priority-subtext low">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.6129 19.7903L12.7071 19.7071L17.7071 14.7071C18.0976 14.3166 18.0976 13.6834 17.7071 13.2929C17.3466 12.9324 16.7794 12.9047 16.3871 13.2097L16.2929 13.2929L13 16.585V5C13 4.44772 12.5523 4 12 4C11.4872 4 11.0645 4.38604 11.0067 4.88338L11 5V16.585L7.70711 13.2929C7.34662 12.9324 6.77939 12.9047 6.3871 13.2097L6.29289 13.2929C5.93241 13.6534 5.90468 14.2206 6.2097 14.6129L6.29289 14.7071L11.2929 19.7071C11.6534 20.0676 12.2206 20.0953 12.6129 19.7903Z"
+                    fill="#0AC947"
+                  />
+                </svg>
+                <span>Low</span>
+              </div>
+            </div>
+            <div class="task-status">
+              <div class="in-process">In process</div>
+            </div>
+            <div class="task-circle flex-col">
+              <svg
+                width="26"
+                height="26"
+                viewBox="0 0 26 26"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="13"
+                  cy="13"
+                  r="12"
+                  stroke="#3F8CFF"
+                  stroke-width="2"
+                />
+              </svg>
+            </div>
+          </li>
+
+          <li class="task-item">
+            <div class="task-name flex-col">
+              <div class="task-name-text">Task Name</div>
+              <div class="task-name-subtext">Research</div>
+            </div>
+            <div class="estimate flex-col">
+              <div class="task-name-text">Estimate</div>
+              <div class="task-name-subtext">2d 4h</div>
+            </div>
+            <div class="spend-time flex-col">
+              <div class="task-name-text">Spend Time</div>
+              <div class="task-name-subtext">1d 2h</div>
+            </div>
+            <div class="assignee flex-col">
+              <div class="task-name-text">Assignee</div>
+              <div class="task-name-subtext">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <circle
+                    cx="14"
+                    cy="14"
+                    r="13"
+                    fill="url(#pattern0_0_3182)"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                  <defs>
+                    <pattern
+                      id="pattern0_0_3182"
+                      patternContentUnits="objectBoundingBox"
+                      width="1"
+                      height="1"
+                    >
+                      <use
+                        xlink:href="#image0_0_3182"
+                        transform="scale(0.00390625)"
+                      />
+                    </pattern>
+                    <image
+                      id="image0_0_3182"
+                      width="256"
+                      height="256"
+                      preserveAspectRatio="none"
+                    />
+                  </defs>
+                </svg>
+              </div>
+            </div>
+            <div class="priority flex-col">
+              <div class="task-name-text">Priority</div>
+              <div class="priority-subtext low">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.6129 19.7903L12.7071 19.7071L17.7071 14.7071C18.0976 14.3166 18.0976 13.6834 17.7071 13.2929C17.3466 12.9324 16.7794 12.9047 16.3871 13.2097L16.2929 13.2929L13 16.585V5C13 4.44772 12.5523 4 12 4C11.4872 4 11.0645 4.38604 11.0067 4.88338L11 5V16.585L7.70711 13.2929C7.34662 12.9324 6.77939 12.9047 6.3871 13.2097L6.29289 13.2929C5.93241 13.6534 5.90468 14.2206 6.2097 14.6129L6.29289 14.7071L11.2929 19.7071C11.6534 20.0676 12.2206 20.0953 12.6129 19.7903Z"
+                    fill="#0AC947"
+                  />
+                </svg>
+                <span>Low</span>
+              </div>
+            </div>
+            <div class="task-status">
+              <div class="done">Done</div>
+            </div>
+            <div class="task-circle flex-col">
+              <svg
+                width="26"
+                height="26"
+                viewBox="0 0 26 26"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="13"
+                  cy="13"
+                  r="12"
+                  stroke="#3F8CFF"
+                  stroke-width="2"
+                />
+              </svg>
+            </div>
+          </li>
+
+          <li class="task-item">
+            <div class="task-name flex-col">
+              <div class="task-name-text">Task Name</div>
+              <div class="task-name-subtext">Research</div>
+            </div>
+            <div class="estimate flex-col">
+              <div class="task-name-text">Estimate</div>
+              <div class="task-name-subtext">2d 4h</div>
+            </div>
+            <div class="spend-time flex-col">
+              <div class="task-name-text">Spend Time</div>
+              <div class="task-name-subtext">1d 2h</div>
+            </div>
+            <div class="assignee flex-col">
+              <div class="task-name-text">Assignee</div>
+              <div class="task-name-subtext">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <circle
+                    cx="14"
+                    cy="14"
+                    r="13"
+                    fill="url(#pattern0_0_3182)"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                  <defs>
+                    <pattern
+                      id="pattern0_0_3182"
+                      patternContentUnits="objectBoundingBox"
+                      width="1"
+                      height="1"
+                    >
+                      <use
+                        xlink:href="#image0_0_3182"
+                        transform="scale(0.00390625)"
+                      />
+                    </pattern>
+                    <image
+                      id="image0_0_3182"
+                      width="256"
+                      height="256"
+                      preserveAspectRatio="none"
+                    />
+                  </defs>
+                </svg>
+              </div>
+            </div>
+            <div class="priority flex-col">
+              <div class="task-name-text">Priority</div>
+              <div class="priority-subtext">
+                <span>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12.6129 4.2097L12.7071 4.29289L17.7071 9.29289C18.0976 9.68342 18.0976 10.3166 17.7071 10.7071C17.3466 11.0676 16.7794 11.0953 16.3871 10.7903L16.2929 10.7071L13 7.415V19C13 19.5523 12.5523 20 12 20C11.4872 20 11.0645 19.614 11.0067 19.1166L11 19V7.415L7.70711 10.7071C7.34662 11.0676 6.77939 11.0953 6.3871 10.7903L6.29289 10.7071C5.93241 10.3466 5.90468 9.77939 6.2097 9.3871L6.29289 9.29289L11.2929 4.29289C11.6534 3.93241 12.2206 3.90468 12.6129 4.2097Z"
+                      fill="#FFBD21"
+                    />
+                  </svg>
+                </span>
+                <span>Medium</span>
+              </div>
+            </div>
+            <div class="task-status">
+              <div class="done">Done</div>
+            </div>
+            <div class="task-circle flex-col">
+              <svg
+                width="26"
+                height="26"
+                viewBox="0 0 26 26"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="13"
+                  cy="13"
+                  r="12"
+                  stroke="#3F8CFF"
+                  stroke-width="2"
+                />
+              </svg>
+            </div>
+          </li>
+
+          <li class="task-item">
+            <div class="task-name flex-col">
+              <div class="task-name-text">Task Name</div>
+              <div class="task-name-subtext">Research</div>
+            </div>
+            <div class="estimate flex-col">
+              <div class="task-name-text">Estimate</div>
+              <div class="task-name-subtext">2d 4h</div>
+            </div>
+            <div class="spend-time flex-col">
+              <div class="task-name-text">Spend Time</div>
+              <div class="task-name-subtext">1d 2h</div>
+            </div>
+            <div class="assignee flex-col">
+              <div class="task-name-text">Assignee</div>
+              <div class="task-name-subtext">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <circle
+                    cx="14"
+                    cy="14"
+                    r="13"
+                    fill="url(#pattern0_0_3182)"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                  <defs>
+                    <pattern
+                      id="pattern0_0_3182"
+                      patternContentUnits="objectBoundingBox"
+                      width="1"
+                      height="1"
+                    >
+                      <use
+                        xlink:href="#image0_0_3182"
+                        transform="scale(0.00390625)"
+                      />
+                    </pattern>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+            <div class="priority flex-col">
+              <div class="task-name-text">Priority</div>
+              <div class="priority-subtext low">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.6129 19.7903L12.7071 19.7071L17.7071 14.7071C18.0976 14.3166 18.0976 13.6834 17.7071 13.2929C17.3466 12.9324 16.7794 12.9047 16.3871 13.2097L16.2929 13.2929L13 16.585V5C13 4.44772 12.5523 4 12 4C11.4872 4 11.0645 4.38604 11.0067 4.88338L11 5V16.585L7.70711 13.2929C7.34662 12.9324 6.77939 12.9047 6.3871 13.2097L6.29289 13.2929C5.93241 13.6534 5.90468 14.2206 6.2097 14.6129L6.29289 14.7071L11.2929 19.7071C11.6534 20.0676 12.2206 20.0953 12.6129 19.7903Z"
+                    fill="#0AC947"
+                  />
+                </svg>
+                <span>Low</span>
+              </div>
+            </div>
+            <div class="task-status">
+              <div class="done">Done</div>
+            </div>
+            <div class="task-circle flex-col">
+              <svg
+                width="26"
+                height="26"
+                viewBox="0 0 26 26"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="13"
+                  cy="13"
+                  r="12"
+                  stroke="#3F8CFF"
+                  stroke-width="2"
+                />
+              </svg>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="backlog">Back Log</div>
+    </div>
+  </div>
+
+  <!-- Loading indicator -->
+    <div *ngIf="isLoading" class="loading-overlay">
+        Loading projects...
     </div>
 
+  <!-- Add project Modal -->
+  <div
+    class="add-project-modal"
+    *ngIf="showAddProjectModal"
+    (click)="closeAddProjectModal()"
+  >
+    <div
+      class="modal-content add-project-content"
+        (click)="$event.stopPropagation()"
+    >
+      <div class="modal-header">
+        <h3>Add Project</h3>
+        <button class="close-btn" (click)="closeAddProjectModal()">
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="projectForm" (ngSubmit)="saveProject()" class="">
+           <div class="row row-cols-2 gap-2">
+                <div class="col">
+                    <div class="form-group">
+                        <label>Project Name</label>
+                        <input type="text" formControlName="project_name" />
+                    </div>
+
+                <!-- start date and end date -->
+
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label>Start Date</label>
+                            <div class="input-icon">
+                                <input type="date" formControlName="start_date" />
+                            </div>
+                        </div>
+                        <div class="form-group half">
+                            <label>End Date</label>
+                            <div class="input-icon">
+                                <input type="date" formControlName="end_date" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Priority</label>
+                        <select formControlName="priority">
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea
+                        formControlName="description"
+                        placeholder="Add some description of the project"
+                        ></textarea>
+                    </div>
+                </div>
+            <div class="col">
+                <div class="form-group">
+                    <div>Select image</div>
+                    <p>Select or upload an avatar for the project (available formats: jpg, png)</p>
+                    <div class="row-col-4">
+                        <div class="col">
+                            <img src="assets/avatar.jpg" alt="" srcset="" class="w-20">
+                        </div>
+                        <div class="col">
+                            <img src="assets/avatar.jpg" alt="" srcset="">
+                        </div>
+                        <div class="col">
+                            <img src="assets/avatar.jpg" alt="" srcset="">
+                        </div>
+                        <div class="col">
+                            <img src="assets/avatar.jpg" alt="" srcset="">
+                        </div>
+                    </div>
+
+                    <div class="row-col-4">
+
+                        <div class="col">
+                            <img src="assets/avatar.jpg" alt="" srcset="">
+                        </div>
+                        <div class="col">
+                            <img src="assets/avatar.jpg" alt="" srcset="">
+                        </div>
+                        <div class="col">
+                            <img src="assets/avatar.jpg" alt="" srcset="">
+                        </div>
+                        <div class="col">
+                            <img src="assets/avatar.jpg" alt="" srcset="">
+                        </div>
+                    </div>
+
+                    <div class="row-col-4">
+
+                        <div class="col">
+                            <img src="assets/avatar.jpg" alt="" srcset="">
+                        </div>
+                        <div class="col">
+                            <img src="assets/avatar.jpg" alt="" srcset="">
+                        </div>
+                        <div class="col">
+                            <img src="assets/avatar.jpg" alt="" srcset="">
+                        </div>
+                        <div class="col">
+                            <img src="assets/avatar.jpg" alt="" srcset="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+           </div>
+
+
+          <button type="submit" class="save-btn">Save Project</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

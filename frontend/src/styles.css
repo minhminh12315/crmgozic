@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 
 :root {
     --primary-color: #3F8CFF;
@@ -177,7 +176,7 @@ textarea {
 .badge .badge-success {
     color: var(--text-color-disabled);
     background-color: transparent;
-    border: 1px solid var(--text-color-disabled);dá
+    border: 1px solid var(--text-color-disabled);
 }
 
 .btn-close-custom {
