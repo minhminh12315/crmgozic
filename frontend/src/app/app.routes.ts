@@ -21,13 +21,13 @@ export const routes: Routes = [
         canActivate: [authGuard],
         children: [
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-            { path: 'project', component: ProjectComponent },
+            { path: 'projects', component: ProjectComponent },
             {
                 path: 'profile',
                 component: ProfileLayoutComponent,
                 children: [
-                    { path: '', redirectTo: 'project', pathMatch: 'full' }, 
-                    { path: 'project', component: ProfileProjectComponent },
+                    { path: '', redirectTo: 'projects', pathMatch: 'full' }, 
+                    { path: 'projects', component: ProfileProjectComponent },
                     { path: 'team', component: ProfileTeamComponent},
                     { path: 'vacations', component: ProfileVacationComponent },
                     { path: 'setting', component: ProfileSettingComponent },
@@ -38,6 +38,6 @@ export const routes: Routes = [
             { path: 'messenger', component: MessengerComponent },
         ]
     },
-    { path: '**', redirectTo: 'sign-in', pathMatch: 'full' }
+    // { path: '**', redirectTo: 'sign-in', pathMatch: 'full' }
 ];
 

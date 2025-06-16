@@ -1,28 +1,69 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { start } from 'repl';
 
 @Component({
   selector: 'app-project',
-  imports: [],
-  templateUrl: './project.component.html',
-  styleUrl: './project.component.css'
-})
-export class ProjectComponent {
-  // This component can be used to manage projects, tasks, and other related functionalities.
-  // It can be expanded with additional methods and properties as needed.
   
-  constructor() {
-    // Initialization logic can go here
+  templateUrl: './project.component.html',
+  styleUrl: './project.component.css',
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule
+  ],
+  standalone: true,
+})
+export class ProjectComponent implements OnInit {
+
+  showAddProjectModal = false;
+  isLoading = false;
+  projectForm!: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder,
+  ) {
+  }
+
+  ngOnInit() {
+    this.projectForm = this.formBuilder.group({
+      name: [''],
+      description: [''],
+      startDate: [''],
+      endDate: [''],
+      priority: ['Low'],
+    });
   }
   
-  // Example method to add a new project
   addProject(projectName: string) {
     console.log(`Adding project: ${projectName}`);
-    // Logic to add the project would go here
   }
   
-  // Example method to list all projects
   listProjects() {
     console.log('Listing all projects');
-    // Logic to list projects would go here
+  }
+  
+  openAddProjectModal() {
+    this.showAddProjectModal = true;
+    // log
+    console.log('Opening add project modal');
+  }
+
+  closeAddProjectModal() {
+    this.showAddProjectModal = false;
+  }
+
+  saveProject() {
+    if (this.projectForm.valid) {
+      const projectName = this.projectForm.value.projectName;
+      const projectDescription = this.projectForm.value.projectDescription;
+      this.addProject(projectName);
+      this.closeAddProjectModal();
+      // log
+      console.log(`Project saved: ${projectName}, Description: ${projectDescription}`);
+    } else {
+      console.error('Project form is invalid');
+    }
   }
 } 
