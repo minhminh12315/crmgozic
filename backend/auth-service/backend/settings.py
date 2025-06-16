@@ -85,11 +85,13 @@ MIDDLEWARE = [
 
 # Cấu hình cho Angular frontend
 CORS_ALLOWED_ORIGINS = [
-    "http://127.0.0.1:4200",  # domain Angular
+    "http://127.0.0.1:4200",
+    "http://localhost:4200"  # domain Angular
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://127.0.0.1:4200",  # domain Angular
+    "http://127.0.0.1:4200",
+    "http://localhost:4200" # domain Angular
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -122,8 +124,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': os.environ.get('MYSQL_DATABASE', 'crmgozic'),
-        'USER': os.environ.get('MYSQL_USER', 'root'),
-        'PASSWORD': os.environ.get('MYSQL_PASSWORD', 'rootpassword'),
+        'USER': os.environ.get('MYSQL_USER', 'apiuser'),
+        'PASSWORD': os.environ.get('MYSQL_PASSWORD', 'apipassword'),
         'HOST': os.environ.get('MYSQL_HOST', 'db'),
         'PORT': os.environ.get('MYSQL_PORT', '3306'),
         'OPTIONS': {

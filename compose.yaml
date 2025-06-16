@@ -17,8 +17,8 @@ services:
       - AUTH_SERVICE_HOST=auth-service
       # thêm các biến DB
       - MYSQL_DATABASE=crmgozic
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=
+      - MYSQL_USER=apiuser
+      - MYSQL_PASSWORD=apipassword
       - MYSQL_HOST=db
       - MYSQL_PORT=3306
     depends_on:
@@ -43,9 +43,15 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    ports:
+      - 3306:3306
   adminer:
     image: adminer
     restart: always
+    depends_on:
+      - db
+    environment:
+      ADMINER_DEFAULT_SERVER: db
     ports:
       - 8080:8080
   frontend:
