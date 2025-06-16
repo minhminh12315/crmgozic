@@ -49,3 +49,6 @@ npm install
 npm start
 ng serve --host 127.0.0.1 --port 4200
 ```
+
+### 7. tạo tài khoản
+py manage.py createsuperuser
